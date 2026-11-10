@@ -43,6 +43,9 @@ export const marca = {
   simbolo: '/brand/guvix-simbolo.svg',
   /** Recorte do astronauta da arte da marca (usado em Diferenciais) */
   astronauta: '/brand/astronauta.webp',
+  /** Astronauta flutuando e lua (fundo transparente), usados na cena do topo */
+  astronautaFlutuando: '/brand/astronauta-flutuando.webp',
+  lua: '/brand/lua.webp',
   nome: 'GUVIX',
 }
 

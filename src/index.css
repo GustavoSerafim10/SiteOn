@@ -195,28 +195,28 @@
   background: radial-gradient(circle, rgb(139 92 246 / 0.55), transparent 65%);
 }
 
-/* ---------- Lua / planeta em CSS ---------- */
-.lua {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  /* crateras suaves (manchas esfumadas) + esfera iluminada de cima à esquerda */
-  background:
-    radial-gradient(circle at 58% 52%, rgb(10 20 60 / 0.28), transparent 9%),
-    radial-gradient(circle at 38% 66%, rgb(10 20 60 / 0.22), transparent 6%),
-    radial-gradient(circle at 68% 30%, rgb(10 20 60 / 0.2), transparent 7%),
-    radial-gradient(circle at 26% 40%, rgb(255 255 255 / 0.1), transparent 12%),
-    radial-gradient(circle at 30% 26%, #d8f1ff 0%, #6fb8ff 16%, #3466e0 40%, #2b2a8a 64%, #12163f 88%);
-  box-shadow:
-    -6px -6px 24px -6px rgb(0 212 255 / 0.9),
-    0 0 70px 8px rgb(0 212 255 / 0.3),
-    0 0 180px 40px rgb(139 92 246 / 0.22),
-    inset -60px -70px 100px rgb(8 13 27 / 0.9);
-  animation: flutuar-lua 14s ease-in-out infinite;
+/* ---------- Cena do topo: astronauta indo pegar a lua ---------- */
+/* A lua gira bem devagar e flutua; o astronauta sobe em direção a ela */
+.cena-lua {
+  animation: lua-flutua 16s ease-in-out infinite;
+  filter: drop-shadow(0 0 50px rgb(139 92 246 / 0.45)) drop-shadow(0 0 24px rgb(0 212 255 / 0.3));
 }
-@keyframes flutuar-lua {
+@keyframes lua-flutua {
   50% {
-    transform: translateY(14px);
+    transform: translateY(16px) rotate(4deg);
+  }
+}
+.cena-astronauta {
+  animation: astronauta-alcanca 9s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgb(8 13 27 / 0.6)) drop-shadow(0 0 30px rgb(22 119 255 / 0.25));
+}
+@keyframes astronauta-alcanca {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(18px, -22px) rotate(-3deg);
   }
 }
 
@@ -379,7 +379,8 @@
   /* vitrine e degradê ficam parados */
   .vitrine-trilho,
   .text-gradient-vivo,
-  .lua {
+  .cena-lua,
+  .cena-astronauta {
     animation: none !important;
   }
 }
