@@ -29,7 +29,7 @@ export function ChamadaFinal() {
         height={362}
         loading="lazy"
         decoding="async"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[48%] object-cover object-left [mask-image:linear-gradient(90deg,transparent,#000_35%),linear-gradient(0deg,transparent,#000_20%)] [mask-composite:intersect] lg:block"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[50%] object-cover object-[72%_center] [mask-image:linear-gradient(90deg,transparent,#000_35%),linear-gradient(0deg,transparent,#000_20%)] [mask-composite:intersect] lg:block"
       />
 
       <Reveal className="shell relative py-20 sm:py-28 lg:py-32">

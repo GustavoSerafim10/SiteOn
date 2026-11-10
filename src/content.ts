@@ -52,45 +52,33 @@ export const marca = {
   astronautaCloseup: '/brand/guvix-hero-astronauta.webp',
   /** Segunda lua, usada nas bordas das seções */
   lua2: '/brand/lua-2.webp',
-  /** Fundo de nebulosa (bloco final "Vamos começar?") */
+  /** Fundo de nebulosa (Serviços e bloco final) */
   fundoNebula: '/brand/guvix-fundo-espacial-nebula.webp',
+  /** Cena completa do astronauta com planeta e asteroides (topo) */
+  heroCena: '/brand/guvix-hero-cena.webp',
+  /** Notebook holográfico com o símbolo G/X (Diferenciais) */
+  diferenciaisNotebook: '/brand/diferenciais-notebook.webp',
   nome: 'GUVIX',
 }
 
 // ------------------------------------------------------------
-// Vitrine em movimento (logo abaixo do topo)
-// São EXEMPLOS ILUSTRATIVOS gerados em CSS, por ramo de negócio,
-// não clientes reais. A legenda deixa isso claro na página.
+// Exemplos (painel logo abaixo do topo)
+// São ESTILOS ILUSTRATIVOS, não clientes nem cases reais.
+// O texto do painel deixa isso claro. Os projetos reais ficam em `portfolio`.
 // ------------------------------------------------------------
 
-export const vitrineSecao = {
-  legenda: 'Exemplos ilustrativos dos estilos de site que eu crio',
+export const exemplosSecao = {
+  selo: 'EXEMPLOS',
+  tituloAntes: 'Estilos de ',
+  tituloDestaque: 'site',
+  subtitulo: 'Exemplos ilustrativos do que dá para criar para o seu negócio.',
 }
 
-export interface ItemVitrine {
-  nicho: string
-  titulo: string
-  botao: string
-  cores: [string, string]
-  /** cor de fundo da "página" dentro do mockup */
-  fundo: 'claro' | 'escuro'
-}
-
-export const vitrine: ItemVitrine[][] = [
-  [
-    { nicho: 'Padaria', titulo: 'Pão quentinho todo dia', botao: 'Pedir agora', cores: ['#F59E0B', '#EA580C'], fundo: 'claro' },
-    { nicho: 'Barbearia', titulo: 'Corte e barba com hora marcada', botao: 'Agendar', cores: ['#1677FF', '#0F172A'], fundo: 'escuro' },
-    { nicho: 'Clínica', titulo: 'Cuidado perto de você', botao: 'Marcar consulta', cores: ['#00D4FF', '#0EA5E9'], fundo: 'claro' },
-    { nicho: 'Pet shop', titulo: 'Banho, tosa e carinho', botao: 'Chamar no WhatsApp', cores: ['#22C55E', '#15803D'], fundo: 'claro' },
-    { nicho: 'Hamburgueria', titulo: 'Smash na sua porta', botao: 'Ver cardápio', cores: ['#EF4444', '#7F1D1D'], fundo: 'escuro' },
-  ],
-  [
-    { nicho: 'Estúdio de beleza', titulo: 'Sua melhor versão', botao: 'Agendar horário', cores: ['#EC4899', '#8B5CF6'], fundo: 'claro' },
-    { nicho: 'Academia', titulo: 'Treine com quem entende', botao: 'Aula experimental', cores: ['#8B5CF6', '#1E1B4B'], fundo: 'escuro' },
-    { nicho: 'Loja de roupas', titulo: 'Nova coleção chegou', botao: 'Ver catálogo', cores: ['#F43F5E', '#FB923C'], fundo: 'claro' },
-    { nicho: 'Advocacia', titulo: 'Orientação jurídica clara', botao: 'Falar com advogado', cores: ['#334155', '#0F172A'], fundo: 'escuro' },
-    { nicho: 'Oficina', titulo: 'Revisão sem surpresa', botao: 'Pedir orçamento', cores: ['#FACC15', '#CA8A04'], fundo: 'claro' },
-  ],
+export const exemplos: { titulo: string; descricao: string; imagem: string }[] = [
+  { titulo: 'Landing Page', descricao: 'Uma página direta ao ponto.', imagem: '/brand/exemplo-landing.webp' },
+  { titulo: 'Site Institucional', descricao: 'A presença completa da sua marca.', imagem: '/brand/exemplo-institucional.webp' },
+  { titulo: 'Dashboard', descricao: 'Painéis para acompanhar seus dados.', imagem: '/brand/exemplo-dashboard.webp' },
+  { titulo: 'E-commerce', descricao: 'Vitrine de produtos on-line.', imagem: '/brand/exemplo-ecommerce.webp' },
 ]
 
 // ------------------------------------------------------------
@@ -120,7 +108,18 @@ export const hero = {
     'Sites modernos, rápidos e prontos para o celular, para o seu cliente te encontrar e chamar no WhatsApp.',
   botaoPrincipal: 'Quero meu site',
   botaoSecundario: 'Ver portfólio',
-  selos: ['Feito para celular', 'Domínio no seu nome', 'Suporte direto'],
+  /** Título com palavras em destaque, como na referência ('ciano' ou 'violeta') */
+  tituloPartes: [
+    { texto: 'Seu ' },
+    { texto: 'negócio', destaque: 'ciano' },
+    { texto: ' no ar com um site ' },
+    { texto: 'profissional', destaque: 'violeta' },
+  ] as { texto: string; destaque?: 'ciano' | 'violeta' }[],
+  selos: [
+    { icone: 'celular', texto: 'Feito para celular' },
+    { icone: 'dominio', texto: 'Domínio no seu nome' },
+    { icone: 'escudo', texto: 'Suporte direto' },
+  ] as { icone: IconeNome; texto: string }[],
   instagramTexto: 'Veja os bastidores no Instagram',
 }
 
@@ -141,6 +140,7 @@ export type IconeNome =
   | 'proposta'
   | 'criacao'
   | 'lancamento'
+  | 'escudo'
 
 export interface Servico {
   icone: IconeNome
@@ -153,56 +153,55 @@ export const servicosSecao = {
   selo: 'SERVIÇOS',
   tituloAntes: 'O site certo para o ',
   tituloDestaque: 'seu negócio',
-  subtitulo: 'Soluções digitais para colocar seu negócio na internet: do site simples ao sistema sob medida.',
-  botaoPrincipal: 'Quero meu site',
-  botao: 'Pedir orçamento',
+  subtitulo: 'Escolha o formato que combina com o momento da sua empresa.',
+  botao: 'Saber mais',
   observacao: 'Domínio, hospedagem e funcionalidades extras são combinados no orçamento.',
 }
 
-/**
- * Os 6 cartões da seção. Os 4 primeiros são serviços; Performance e
- * Atendimento direto são diferenciais (sem promessa de nota, prazo ou resultado).
- */
+/** Serviços oferecidos (sem E-commerce: não foi confirmado como serviço) */
 export const servicos: Servico[] = [
   {
     icone: 'landing',
-    titulo: 'Landing Page',
-    descricao: 'Uma página com seus serviços, fotos, localização e botão de WhatsApp.',
+    titulo: 'Página única (Landing Page)',
+    descricao: 'Seus serviços, fotos, localização e botão de WhatsApp numa página.',
   },
   {
     icone: 'institucional',
-    titulo: 'Site Institucional',
-    descricao: 'De 3 a 5 páginas: história do negócio, serviços, galeria e contato.',
+    titulo: 'Site institucional',
+    descricao: 'De 3 a 5 páginas: história, serviços, galeria e contato.',
     destaque: 'Mais procurado',
   },
   {
     icone: 'catalogo',
     titulo: 'Catálogo com pedido pelo WhatsApp',
-    descricao: 'Seus produtos com fotos e preços, com pedido direto no seu WhatsApp.',
+    descricao: 'Produtos com fotos e preços, e o pedido chega no seu WhatsApp.',
   },
   {
     icone: 'criacao',
-    titulo: 'Desenvolvimento Personalizado',
-    descricao: 'Sistemas, painéis e aplicações web sob medida para o seu negócio.',
-  },
-  {
-    icone: 'rapido',
-    titulo: 'Performance',
-    descricao: 'Sites leves e otimizados, que abrem rápido e navegam sem travar.',
-  },
-  {
-    icone: 'atendimento',
-    titulo: 'Atendimento Direto',
-    descricao: 'Você fala comigo, do primeiro contato até o site no ar.',
+    titulo: 'Desenvolvimento personalizado',
+    descricao: 'Sistemas, painéis e aplicações web sob medida.',
   },
 ]
 
-/** Faixa de benefícios embaixo dos cartões. Só benefícios reais. */
-export const beneficios: { icone: IconeNome; titulo: string; descricao: string }[] = [
-  { icone: 'celular', titulo: 'Feito para celular', descricao: 'Pensado para quem acessa pelo telefone.' },
-  { icone: 'dominio', titulo: 'Domínio no seu nome', descricao: 'Registrado no seu CPF ou CNPJ.' },
-  { icone: 'proposta', titulo: 'Orçamento sem compromisso', descricao: 'Você decide depois da proposta.' },
-  { icone: 'conversa', titulo: 'Você acompanha tudo', descricao: 'E pede ajustes durante a criação.' },
+// ------------------------------------------------------------
+// Diferenciais — só benefícios reais. Sem prometer prazo,
+// suporte contínuo, notas de desempenho ou resultados.
+// ------------------------------------------------------------
+
+export const diferenciaisSecao = {
+  selo: 'DIFERENCIAIS',
+  tituloAntes: 'Por que escolher a ',
+  tituloDestaque: 'Guvix',
+  texto:
+    'Um site que trabalha por você: aparece bem no celular, carrega rápido e leva o cliente direto para a conversa no WhatsApp.',
+  botao: 'Quero meu site',
+}
+
+export const diferenciais: { icone: IconeNome; titulo: string; descricao: string }[] = [
+  { icone: 'celular', titulo: 'Pensado para celular', descricao: 'A maioria dos seus clientes vai acessar pelo celular.' },
+  { icone: 'rapido', titulo: 'Rápido de verdade', descricao: 'Site leve, que abre rápido e navega sem travar.' },
+  { icone: 'dominio', titulo: 'Domínio no seu nome', descricao: 'O endereço do seu site fica com a sua marca.' },
+  { icone: 'atendimento', titulo: 'Atendimento direto', descricao: 'Você fala comigo, sem intermediários.' },
 ]
 
 // ------------------------------------------------------------

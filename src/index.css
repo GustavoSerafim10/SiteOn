@@ -60,6 +60,20 @@
     color: transparent;
   }
 
+  /* Degradês das palavras em destaque do título do topo */
+  .text-gradient-ciano {
+    background: linear-gradient(90deg, #5ef0ff, var(--color-cyan) 45%, var(--color-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-violeta {
+    background: linear-gradient(90deg, var(--color-violet), #c084fc 50%, var(--color-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   /* Prata metálico do logotipo */
   .text-metal {
     background: linear-gradient(180deg, #ffffff 0%, #dbe3f0 45%, #9aa6bd 55%, #eef2f9 100%);
@@ -248,31 +262,6 @@
   }
 }
 
-/* ---------- Vitrine em movimento (marquee) ---------- */
-.vitrine {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-.vitrine-trilho {
-  display: flex;
-  width: max-content;
-  gap: 1.25rem;
-  animation: vitrine 55s linear infinite;
-}
-.vitrine-trilho.reverso {
-  animation-direction: reverse;
-  animation-duration: 65s;
-}
-.vitrine:hover .vitrine-trilho {
-  animation-play-state: paused;
-}
-@keyframes vitrine {
-  to {
-    transform: translateX(calc(-50% - 0.625rem));
-  }
-}
-
 /* ---------- Horizonte de planeta (inspirado nas artes da marca) ---------- */
 /* Elipse achatada (leve de renderizar): a borda de cima forma a curva do horizonte */
 .planeta {
@@ -376,8 +365,7 @@
     opacity: 1;
     transform: none;
   }
-  /* vitrine e degradê ficam parados */
-  .vitrine-trilho,
+  /* degradê e flutuação ficam parados */
   .text-gradient-vivo,
   .cena-lua,
   .cena-astronauta {

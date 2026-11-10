@@ -7,6 +7,7 @@ import {
   LayoutTemplate,
   MessageCircle,
   Rocket,
+  ShieldCheck,
   ShoppingBag,
   Smartphone,
   Zap,
@@ -27,6 +28,7 @@ const mapa: Record<IconeNome, ComponentType<LucideProps>> = {
   proposta: FileText,
   criacao: CodeXml,
   lancamento: Rocket,
+  escudo: ShieldCheck,
 }
 
 export function Icon({ nome, ...props }: { nome: IconeNome } & LucideProps) {

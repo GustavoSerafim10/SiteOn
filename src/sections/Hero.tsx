@@ -1,53 +1,68 @@
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { hero, INSTAGRAM_LINK, INSTAGRAM_USUARIO, marca, WHATSAPP_LINK } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
 import { InstagramIcon, WhatsAppIcon } from '../components/BrandIcons'
-import { PlanetaBorda } from '../components/PlanetaBorda'
+import { Icon } from '../components/Icon'
+
+const classeDestaque = {
+  ciano: 'text-gradient-ciano',
+  violeta: 'text-gradient-violeta',
+}
 
 export function Hero() {
   return (
     <section
       id="topo"
       aria-labelledby="hero-titulo"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-36 lg:pt-32 lg:pb-44"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-20 lg:pt-32 lg:pb-28"
     >
-      {/* quadriculado + brilho de canto */}
-      <div aria-hidden="true" className="grade" />
+      {/* cena completa da marca: astronauta, planeta e asteroides (à direita no desktop, atrás do texto no celular) */}
+      <img
+        src={marca.heroCena}
+        alt=""
+        aria-hidden="true"
+        width={1672}
+        height={941}
+        decoding="async"
+        fetchPriority="high"
+        className="absolute inset-0 h-full w-full object-cover object-[62%_center] lg:left-auto lg:w-[74%] lg:[mask-image:linear-gradient(90deg,transparent,#000_32%)]"
+      />
+      {/* véus para a leitura do texto e transição para a próxima seção */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 -right-40 h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgb(0_212_255/0.38),rgb(139_92_246/0.22)_45%,transparent_70%)] blur-2xl"
+        className="absolute inset-0 bg-gradient-to-r from-midnight/95 via-midnight/80 to-midnight/40 lg:from-midnight lg:via-midnight/60 lg:to-transparent"
       />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-midnight" />
       <div aria-hidden="true" className="brilho brilho-violeta top-1/3 -left-40 h-[30rem] w-[30rem]" />
-      {/* planetas nas bordas, como no layout */}
-      <PlanetaBorda
-        src={marca.lua}
-        className="cena-lua top-20 -right-48 hidden w-[26rem] opacity-90 md:block xl:-right-40 xl:w-[34rem]"
-      />
-      <PlanetaBorda src={marca.lua2} className="-bottom-28 -left-28 w-60 opacity-80 sm:w-72 lg:-bottom-36 lg:w-96" />
 
-      <div className="shell relative grid items-center gap-16 lg:grid-cols-[1.05fr_1fr] lg:gap-12 xl:gap-20">
-        <div>
+      <div className="shell relative">
+        <div className="max-w-2xl xl:max-w-3xl">
           <span className="eyebrow">{hero.selo}</span>
 
           <h1
             id="hero-titulo"
-            className="mt-6 text-[2.15rem] leading-[1.1] font-extrabold sm:text-5xl lg:text-[3.6rem] xl:text-[4.2rem] 2xl:text-[4.9rem]"
+            className="mt-6 text-[2.2rem] leading-[1.08] font-extrabold sm:text-5xl lg:text-[3.8rem] xl:text-[4.4rem] 2xl:text-[5rem]"
           >
-            {hero.tituloAntes}
-            <span className="text-gradient-vivo whitespace-nowrap">{hero.tituloDestaque}</span>
-            {hero.tituloDepois}
+            {hero.tituloPartes.map((p, i) =>
+              p.destaque ? (
+                <span key={i} className={`${classeDestaque[p.destaque]} whitespace-nowrap`}>
+                  {p.texto}
+                </span>
+              ) : (
+                <span key={i}>{p.texto}</span>
+              ),
+            )}
           </h1>
 
-          <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg xl:max-w-2xl xl:text-xl">
-            {hero.subtitulo}
-          </p>
+          <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-200 sm:text-lg xl:text-xl">{hero.subtitulo}</p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ExternalLink href={WHATSAPP_LINK} className="btn-primary px-8 py-4 text-lg">
+            <ExternalLink href={WHATSAPP_LINK} className="btn-primary px-8 py-4 text-lg shadow-[0_0_30px_-4px_rgb(22_119_255/0.8)]">
               <WhatsAppIcon className="h-5 w-5" />
               {hero.botaoPrincipal}
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </ExternalLink>
-            <a href="#portfolio" className="btn-secondary px-8 py-4 text-lg">
+            <a href="#portfolio" className="btn-secondary bg-midnight/40 px-8 py-4 text-lg backdrop-blur-sm">
               {hero.botaoSecundario}
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </a>
@@ -55,11 +70,9 @@ export function Hero() {
 
           <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
             {hero.selos.map((selo) => (
-              <li key={selo} className="flex items-center gap-2 text-sm font-medium text-slate-300 sm:text-[0.95rem]">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-cyan/15 text-cyan">
-                  <Check className="h-3.5 w-3.5" aria-hidden="true" strokeWidth={3} />
-                </span>
-                {selo}
+              <li key={selo.texto} className="flex items-center gap-2 text-sm font-medium text-slate-200 sm:text-[0.95rem]">
+                <Icon nome={selo.icone} className="h-5 w-5 text-cyan" />
+                {selo.texto}
               </li>
             ))}
           </ul>
@@ -73,21 +86,6 @@ export function Hero() {
               {hero.instagramTexto}: <span className="font-semibold whitespace-nowrap text-white">{INSTAGRAM_USUARIO}</span>
             </span>
           </ExternalLink>
-        </div>
-
-        {/* cena: o astronauta da marca flutua em direção à lua, como se fosse pegá-la */}
-        {/* astronauta da marca estendendo a mão em direção ao texto */}
-        <div aria-hidden="true" className="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-[40rem]">
-          <div className="brilho brilho-azul inset-[10%] opacity-80" />
-          <img
-            src={marca.astronautaAlcancando}
-            alt=""
-            width={907}
-            height={935}
-            decoding="async"
-            fetchPriority="high"
-            className="cena-astronauta relative w-full drop-shadow-[0_0_50px_rgb(22_119_255/0.4)]"
-          />
         </div>
       </div>
     </section>
