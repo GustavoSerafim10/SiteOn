@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 707 200" width="707" height="200" role="img" aria-labelledby="t">
+  <title id="t">GUVIX</title>
+  <defs>
+    <linearGradient id="c-metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".42" stop-color="#DCE3EF"/>
+      <stop offset=".55" stop-color="#9AA6BD"/>
+      <stop offset="1" stop-color="#EEF2F9"/>
+    </linearGradient>
+    <linearGradient id="c-traco" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#00D4FF"/>
+      <stop offset=".45" stop-color="#1677FF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="c-orbita" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00D4FF"/>
+      <stop offset=".6" stop-color="#1677FF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="c-x" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00D4FF"/>
+      <stop offset=".5" stop-color="#1677FF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="c-metalT" gradientUnits="userSpaceOnUse" x1="0" y1="64" x2="0" y2="148">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#DCE3EF"/>
+      <stop offset=".56" stop-color="#9AA6BD"/><stop offset="1" stop-color="#EEF2F9"/></linearGradient></defs>
+  <g >
+    <mask id="c-m" maskUnits="userSpaceOnUse" x="-20" y="-20" width="280" height="240">
+      <rect x="-20" y="-20" width="280" height="240" fill="#fff"/>
+      <ellipse cx="122" cy="104" rx="114" ry="34" transform="rotate(-22 122 104)" fill="none" stroke="#000" stroke-width="17" stroke-linecap="butt" pathLength="360" stroke-dasharray="125 235" stroke-dashoffset="-92"/>
+    </mask>
+    <ellipse cx="122" cy="104" rx="114" ry="34" transform="rotate(-22 122 104)" fill="none" stroke="url(#c-orbita)" stroke-width="7" stroke-linecap="butt" pathLength="360" stroke-dasharray="240 120" stroke-dashoffset="-214"/>
+    <g mask="url(#c-m)">
+      <path d="M66 36 H206 L184 66 H84 L58 100 L84 134 H132 L110 164 H66 L28 100 Z" fill="url(#c-metal)"/>
+      <path d="M112 86 H200 L182 112 H112 Z" fill="url(#c-metal)"/>
+      <path d="M176 86 H210 L142 178 H108 Z" fill="url(#c-traco)"/>
+    </g>
+    <ellipse cx="122" cy="104" rx="114" ry="34" transform="rotate(-22 122 104)" fill="none" stroke="url(#c-orbita)" stroke-width="7" stroke-linecap="butt" pathLength="360" stroke-dasharray="125 235" stroke-dashoffset="-92"/>
+    <path d="M30 52 l3 -10 l3 10 l10 3 l-10 3 l-3 10 l-3 -10 l-10 -3 Z" fill="#FFFFFF" opacity=".9"/>
+  </g>
+  <path d="M332.22 146L284.85 146Q280.37 146 276.56 143.76Q272.75 141.52 270.51 137.71Q268.27 133.90 268.27 129.42L268.27 129.42L268.27 81.94Q268.27 77.34 270.51 73.59Q272.75 69.84 276.56 67.60Q280.37 65.36 284.85 65.36L284.85 65.36L332.22 65.36Q336.82 65.36 340.57 67.60Q344.32 69.84 346.62 73.59Q348.91 77.34 348.91 81.94L348.91 81.94L348.91 89.55L331.33 89.55L331.33 82.83L285.63 82.83L285.63 128.53L331.33 128.53L331.33 116.43L313.86 116.43L313.86 98.96L348.91 98.96L348.91 129.42Q348.91 133.90 346.62 137.71Q344.32 141.52 340.57 143.76Q336.82 146 332.22 146L332.22 146ZM431.07 146L383.58 146Q379.10 146 375.30 143.76Q371.49 141.52 369.25 137.71Q367.01 133.90 367.01 129.42L367.01 129.42L367.01 65.36L384.37 65.36L384.37 128.53L430.06 128.53L430.06 65.36L447.65 65.36L447.65 129.42Q447.65 133.90 445.35 137.71Q443.06 141.52 439.30 143.76Q435.55 146 431.07 146L431.07 146ZM524.77 146L510.32 146L463.62 65.36L483.78 65.36L517.60 123.94L551.42 65.36L571.47 65.36L524.77 146ZM598.64 146L581.50 146L581.50 65.36L598.64 65.36L598.64 146Z" fill="url(#c-metalT)"/>
+  <path d="M631.18 146L613.15 146L613.15 140.06L641.94 105.68L613.15 71.30L613.15 65.36L631.18 65.36L653.58 91.90L675.76 65.36L693.79 65.36L693.79 71.30L664.90 105.68L693.79 139.95L693.79 146L675.76 146L653.36 119.57L631.18 146Z" fill="url(#c-x)"/>
+</svg>
