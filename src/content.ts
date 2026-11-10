@@ -188,6 +188,7 @@ export const servicos: Servico[] = [
 //   'cliente'      → "Cliente"              (site feito para um cliente)
 //   'proprio'      → "Projeto próprio"      (projeto seu, não encomendado)
 //   'demonstracao' → "Projeto demonstrativo" (exemplo fictício)
+//   'interno'      → "Sistema interno"      (uso interno, sem link público; capa desfocada)
 // Nunca marque como 'cliente' algo que não foi feito para um cliente.
 // imagem: caminho em public/portfolio/ (captura de tela 1200×750, 16:10).
 // Se `imagem` ficar vazia, é gerado um placeholder em CSS com `cor`.
@@ -198,7 +199,7 @@ export interface ItemPortfolio {
   descricao: string
   imagem: string
   link?: string
-  tipo: 'cliente' | 'proprio' | 'demonstracao'
+  tipo: 'cliente' | 'proprio' | 'demonstracao' | 'interno'
   /** Só usado no placeholder em CSS: gradiente de fundo */
   cor?: [string, string]
 }
@@ -207,11 +208,12 @@ export const portfolioSecao = {
   selo: 'PORTFÓLIO',
   tituloAntes: 'Projetos que eu ',
   tituloDestaque: 'desenvolvi',
-  subtitulo: 'Aplicações web criadas por mim e publicadas. Clique para ver cada uma funcionando.',
+  subtitulo: 'Aplicações web criadas por mim. Nas que estão publicadas, é só clicar para ver funcionando.',
   etiquetas: {
     cliente: 'Cliente',
     proprio: 'Projeto próprio',
     demonstracao: 'Projeto demonstrativo',
+    interno: 'Sistema interno',
   },
   botaoVer: 'Ver projeto',
 }
@@ -249,9 +251,17 @@ export const portfolio: ItemPortfolio[] = [
     link: 'https://gustavoserafim10.github.io/ProjetoQuantiFy/',
     tipo: 'proprio',
   },
-  // PENDENTE: Assistente de Mudanças. O link
-  // https://gustavoserafim10.github.io/assistente-mudancas/ dá erro 404 (GitHub Pages).
-  // Quando o site estiver no ar, adicione aqui com a captura em public/portfolio/.
+  {
+    titulo: 'Assistente de Mudanças',
+    descricao:
+      'Painel de gestão de mudanças integrado ao GLPI: volume por mês e por tipo, sistemas mais afetados, lead time e acompanhamento ao vivo.',
+    // Capa propositalmente desfocada: o sistema usa dados internos reais.
+    imagem: '/portfolio/assistente-mudancas.webp',
+    // Sem link: https://gustavoserafim10.github.io/assistente-mudancas/ retorna 404
+    // (não há repositório público com esse nome). Se publicar uma versão com
+    // dados fictícios, adicione `link` aqui e troque a capa por uma sem desfoque.
+    tipo: 'interno',
+  },
 ]
 
 // ------------------------------------------------------------
