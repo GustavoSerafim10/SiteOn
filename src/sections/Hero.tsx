@@ -16,7 +16,7 @@ export function Hero() {
             className="mt-5 text-[2rem] leading-[1.15] font-extrabold sm:text-5xl lg:text-[3.4rem]"
           >
             {hero.tituloAntes}
-            <span className="text-gradient">{hero.tituloDestaque}</span>
+            <span className="text-gradient whitespace-nowrap">{hero.tituloDestaque}</span>
             {hero.tituloDepois}
           </h1>
 

@@ -17,11 +17,11 @@ export function Servicos() {
           </p>
         )}
 
-        <ul className="grid gap-6 md:grid-cols-3">
+        <ul className="mx-auto grid max-w-xl gap-6 lg:max-w-none lg:grid-cols-3">
           {servicos.map((s, i) => (
             <Reveal as="li" key={s.titulo} delay={i * 100} className="flex">
               <article
-                className={`card flex w-full flex-col p-6 sm:p-7 ${s.destaque ? 'md:-translate-y-2 ring-1 ring-cyan/40' : ''}`}
+                className={`card flex w-full flex-col p-6 sm:p-7 ${s.destaque ? 'lg:-translate-y-2 ring-1 ring-cyan/40' : ''}`}
               >
                 {s.destaque && (
                   <span className="absolute -top-3 left-6 rounded-full bg-gradient-to-r from-cyan to-violet px-3 py-1 text-xs font-bold text-midnight">

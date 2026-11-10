@@ -16,7 +16,7 @@ export function ChamadaFinal() {
 
           <h2 id="cta-titulo" className="relative mx-auto max-w-2xl text-2xl leading-tight font-bold sm:text-3xl lg:text-4xl">
             {chamadaFinal.tituloAntes}
-            <span className="text-gradient">{chamadaFinal.tituloDestaque}</span>
+            <span className="text-gradient whitespace-nowrap">{chamadaFinal.tituloDestaque}</span>
             {chamadaFinal.tituloDepois}
           </h2>
           <p className="relative mx-auto mt-4 max-w-xl text-base text-cinza sm:text-lg">{chamadaFinal.subtitulo}</p>
