@@ -41,6 +41,8 @@ export const marca = {
   logoHorizontal: '/brand/guvix-logo-horizontal.svg',
   logoMonoBranco: '/brand/guvix-logo-mono-branco.svg',
   simbolo: '/brand/guvix-simbolo.svg',
+  /** Recorte do astronauta da arte da marca (usado em Diferenciais) */
+  astronauta: '/brand/astronauta.webp',
   nome: 'GUVIX',
 }
 
@@ -124,6 +126,10 @@ export type IconeNome =
   | 'rapido'
   | 'dominio'
   | 'atendimento'
+  | 'conversa'
+  | 'proposta'
+  | 'criacao'
+  | 'lancamento'
 
 export interface Servico {
   icone: IconeNome
@@ -233,11 +239,11 @@ export const processoSecao = {
   subtitulo: 'Um processo simples, em quatro passos.',
 }
 
-export const processo = [
-  { titulo: 'Conversa', descricao: 'Você me conta sobre o seu negócio pelo WhatsApp.' },
-  { titulo: 'Proposta', descricao: 'Envio o escopo, o prazo e o valor, sem surpresas.' },
-  { titulo: 'Criação', descricao: 'Desenvolvo o site e você acompanha e pede ajustes.' },
-  { titulo: 'No ar', descricao: 'Publico no seu domínio e te entrego tudo funcionando.' },
+export const processo: { icone: IconeNome; titulo: string; descricao: string }[] = [
+  { icone: 'conversa', titulo: 'Conversa', descricao: 'Você me conta sobre o seu negócio pelo WhatsApp.' },
+  { icone: 'proposta', titulo: 'Proposta', descricao: 'Envio o escopo, o prazo e o valor, sem surpresas.' },
+  { icone: 'criacao', titulo: 'Criação', descricao: 'Desenvolvo o site e você acompanha e pede ajustes.' },
+  { icone: 'lancamento', titulo: 'No ar', descricao: 'Publico no seu domínio e te entrego tudo funcionando.' },
 ]
 
 // ------------------------------------------------------------

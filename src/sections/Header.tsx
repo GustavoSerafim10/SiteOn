@@ -8,10 +8,21 @@ import { InstagramIcon, WhatsAppIcon } from '../components/BrandIcons'
 export function Header() {
   const [aberto, setAberto] = useState(false)
   const [rolou, setRolou] = useState(false)
+  const [ativo, setAtivo] = useState<string | null>(null)
   const botaoRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setRolou(window.scrollY > 12)
+    const onScroll = () => {
+      setRolou(window.scrollY > 12)
+      // seção ativa: a última cujo topo já passou de 40% da altura da tela
+      const linha = window.innerHeight * 0.4
+      let atual: string | null = null
+      for (const item of menu) {
+        const el = document.querySelector(item.href)
+        if (el && el.getBoundingClientRect().top <= linha) atual = item.href
+      }
+      setAtivo(atual)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -54,16 +65,28 @@ export function Header() {
 
         <nav aria-label="Principal" className="hidden lg:block">
           <ul className="flex items-center gap-8 xl:gap-10">
-            {menu.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="text-sm font-medium text-slate-300 transition-colors hover:text-cyan lg:text-[0.95rem]"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {menu.map((item) => {
+              const atual = ativo === item.href
+              return (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    aria-current={atual ? 'location' : undefined}
+                    className={`group relative py-2 text-[0.95rem] font-medium transition-colors hover:text-cyan ${
+                      atual ? 'text-cyan' : 'text-slate-200'
+                    }`}
+                  >
+                    {item.label}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-gradient-to-r from-cyan to-violet transition-all duration-300 ${
+                        atual ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    />
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </nav>
 

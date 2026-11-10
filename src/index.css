@@ -72,8 +72,10 @@
   .card {
     position: relative;
     border-radius: 1.25rem;
-    background: linear-gradient(180deg, rgb(23 38 75 / 0.75), rgb(15 26 53 / 0.75));
-    border: 1px solid rgb(148 163 184 / 0.14);
+    /* um pouco mais claro que o fundo, para destacar bem */
+    background: linear-gradient(180deg, rgb(31 50 98 / 0.8), rgb(20 34 70 / 0.8));
+    border: 1px solid rgb(148 163 184 / 0.2);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
     transition:
       transform 0.25s ease,
       box-shadow 0.25s ease,
@@ -171,8 +173,51 @@
 
 /* Faixa de fundo de ponta a ponta, para separar seções */
 .band {
-  background: linear-gradient(180deg, rgb(15 26 53 / 0.7), rgb(8 13 27 / 0.35));
-  border-block: 1px solid rgb(148 163 184 / 0.08);
+  background: linear-gradient(180deg, rgb(23 38 75 / 0.75), rgb(15 26 53 / 0.55));
+  border-block: 1px solid rgb(148 163 184 / 0.1);
+}
+
+/* ---------- Brilhos coloridos (aurora) espalhados pelas seções ---------- */
+.brilho {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.55;
+}
+.brilho-ciano {
+  background: radial-gradient(circle, rgb(0 212 255 / 0.55), transparent 65%);
+}
+.brilho-azul {
+  background: radial-gradient(circle, rgb(22 119 255 / 0.55), transparent 65%);
+}
+.brilho-violeta {
+  background: radial-gradient(circle, rgb(139 92 246 / 0.55), transparent 65%);
+}
+
+/* ---------- Lua / planeta em CSS ---------- */
+.lua {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  /* crateras suaves (manchas esfumadas) + esfera iluminada de cima à esquerda */
+  background:
+    radial-gradient(circle at 58% 52%, rgb(10 20 60 / 0.28), transparent 9%),
+    radial-gradient(circle at 38% 66%, rgb(10 20 60 / 0.22), transparent 6%),
+    radial-gradient(circle at 68% 30%, rgb(10 20 60 / 0.2), transparent 7%),
+    radial-gradient(circle at 26% 40%, rgb(255 255 255 / 0.1), transparent 12%),
+    radial-gradient(circle at 30% 26%, #d8f1ff 0%, #6fb8ff 16%, #3466e0 40%, #2b2a8a 64%, #12163f 88%);
+  box-shadow:
+    -6px -6px 24px -6px rgb(0 212 255 / 0.9),
+    0 0 70px 8px rgb(0 212 255 / 0.3),
+    0 0 180px 40px rgb(139 92 246 / 0.22),
+    inset -60px -70px 100px rgb(8 13 27 / 0.9);
+  animation: flutuar-lua 14s ease-in-out infinite;
+}
+@keyframes flutuar-lua {
+  50% {
+    transform: translateY(14px);
+  }
 }
 
 /* ---------- Fundo quadriculado que some nas bordas ---------- */
@@ -333,7 +378,8 @@
   }
   /* vitrine e degradê ficam parados */
   .vitrine-trilho,
-  .text-gradient-vivo {
+  .text-gradient-vivo,
+  .lua {
     animation: none !important;
   }
 }

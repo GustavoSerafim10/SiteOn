@@ -7,8 +7,10 @@ import { Reveal } from '../components/Reveal'
 /** Acordeão nativo com <details>/<summary>: acessível por teclado e leitor de tela. */
 export function Duvidas() {
   return (
-    <section id="duvidas" aria-labelledby="duvidas-titulo" className="relative py-20 sm:py-28">
-      <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 xl:gap-24">
+    <section id="duvidas" aria-labelledby="duvidas-titulo" className="relative overflow-x-clip py-20 sm:py-28">
+      <div aria-hidden="true" className="brilho brilho-violeta top-10 -right-40 h-[30rem] w-[30rem]" />
+      <div aria-hidden="true" className="brilho brilho-ciano bottom-10 -left-40 h-[24rem] w-[24rem]" />
+      <div className="shell relative grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 xl:gap-24">
         <Reveal className="lg:sticky lg:top-28 lg:self-start">
           <span className="eyebrow">{duvidasSecao.selo}</span>
           <h2

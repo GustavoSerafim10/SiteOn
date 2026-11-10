@@ -38,8 +38,9 @@ function Capa({ item }: { item: ItemPortfolio }) {
 
 export function Portfolio() {
   return (
-    <section id="portfolio" aria-labelledby="portfolio-titulo" className="relative py-20 sm:py-28">
-      <div className="shell">
+    <section id="portfolio" aria-labelledby="portfolio-titulo" className="relative overflow-hidden py-20 sm:py-28">
+      <div aria-hidden="true" className="brilho brilho-ciano top-1/3 -left-32 h-[28rem] w-[28rem]" />
+      <div className="shell relative">
         <SectionHeading id="portfolio-titulo" {...portfolioSecao} />
 
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">

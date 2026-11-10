@@ -7,8 +7,10 @@ import { SectionHeading } from '../components/SectionHeading'
 
 export function Servicos() {
   return (
-    <section id="servicos" aria-labelledby="servicos-titulo" className="relative py-20 sm:py-28">
-      <div className="shell">
+    <section id="servicos" aria-labelledby="servicos-titulo" className="relative overflow-hidden py-20 sm:py-28">
+      <div aria-hidden="true" className="brilho brilho-azul top-24 -right-32 h-[32rem] w-[32rem]" />
+      <div aria-hidden="true" className="brilho brilho-violeta bottom-0 -left-40 h-[26rem] w-[26rem]" />
+      <div className="shell relative">
         <SectionHeading id="servicos-titulo" {...servicosSecao} />
 
         {PRECO_A_PARTIR_DE && (

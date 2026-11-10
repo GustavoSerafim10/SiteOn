@@ -1,4 +1,16 @@
-import { Building2, Globe, Headset, LayoutTemplate, ShoppingBag, Smartphone, Zap } from 'lucide-react'
+import {
+  Building2,
+  CodeXml,
+  FileText,
+  Globe,
+  Headset,
+  LayoutTemplate,
+  MessageCircle,
+  Rocket,
+  ShoppingBag,
+  Smartphone,
+  Zap,
+} from 'lucide-react'
 import type { LucideProps } from 'lucide-react'
 import type { ComponentType } from 'react'
 import type { IconeNome } from '../content'
@@ -11,6 +23,10 @@ const mapa: Record<IconeNome, ComponentType<LucideProps>> = {
   rapido: Zap,
   dominio: Globe,
   atendimento: Headset,
+  conversa: MessageCircle,
+  proposta: FileText,
+  criacao: CodeXml,
+  lancamento: Rocket,
 }
 
 export function Icon({ nome, ...props }: { nome: IconeNome } & LucideProps) {

@@ -15,7 +15,13 @@ export function Hero() {
       <div aria-hidden="true" className="grade" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 -right-40 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgb(0_212_255/0.28),rgb(139_92_246/0.16)_45%,transparent_70%)] blur-2xl"
+        className="pointer-events-none absolute -top-40 -right-40 h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgb(0_212_255/0.38),rgb(139_92_246/0.22)_45%,transparent_70%)] blur-2xl"
+      />
+      <div aria-hidden="true" className="brilho brilho-violeta top-1/3 -left-40 h-[30rem] w-[30rem]" />
+      {/* lua no canto superior direito */}
+      <div
+        aria-hidden="true"
+        className="lua hidden lg:top-[14%] lg:-right-24 lg:block lg:h-80 lg:w-80 xl:h-[26rem] xl:w-[26rem]"
       />
       {/* horizonte de planeta */}
       <div aria-hidden="true" className="planeta top-[calc(100%-90px)] lg:top-[calc(100%-120px)]" />
