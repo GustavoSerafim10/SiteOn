@@ -10,8 +10,9 @@ export function Logo({ src = marca.logoHorizontal, className = 'h-8' }: { src?: 
 
   if (falhou) {
     return (
-      <span className="font-display text-xl font-extrabold tracking-[0.2em] text-white">
-        GUV<span className="text-gradient">IX</span>
+      <span className="font-display text-xl font-extrabold tracking-[0.14em]" role="img" aria-label={marca.nome}>
+        <span className="text-metal">GUVI</span>
+        <span className="text-gradient">X</span>
       </span>
     )
   }

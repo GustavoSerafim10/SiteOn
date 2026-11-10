@@ -13,7 +13,10 @@ export function Rodape() {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center sm:px-6 md:flex-row md:justify-between md:text-left">
         <div>
           <Logo src={marca.logoMonoBranco} className="h-7" />
-          <p className="mt-3 text-sm text-cinza">{SLOGAN}</p>
+          <p className="mt-3 font-display text-[0.7rem] font-semibold tracking-[0.25em] text-slate-300 uppercase">
+            {SLOGAN.slice(0, SLOGAN.lastIndexOf(' ') + 1)}
+            <span className="text-gradient">{SLOGAN.slice(SLOGAN.lastIndexOf(' ') + 1)}</span>
+          </p>
         </div>
 
         <ul className="flex flex-wrap items-center justify-center gap-3">

@@ -60,6 +60,14 @@
     color: transparent;
   }
 
+  /* Prata metálico do logotipo */
+  .text-metal {
+    background: linear-gradient(180deg, #ffffff 0%, #dbe3f0 45%, #9aa6bd 55%, #eef2f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   /* Cartão com borda em gradiente no hover/foco */
   .card {
     position: relative;
