@@ -19,12 +19,10 @@ export function Servicos() {
     <section
       id="servicos"
       aria-labelledby="servicos-titulo"
-      className="relative overflow-hidden bg-cover bg-center py-20 sm:py-28"
-      style={{
-        backgroundImage: `linear-gradient(180deg, #080d1b 0%, rgb(8 13 27 / 0.84) 15%, rgb(8 13 27 / 0.84) 85%, #080d1b 100%),
-          url('${marca.fundoNebula}')`,
-      }}
+      className="relative overflow-hidden py-20 sm:py-28"
     >
+      {/* usa o fundo vivo da página (nebulosa) + brilho roxo próprio */}
+      <div aria-hidden="true" className="brilho brilho-violeta top-1/3 left-1/3 h-[34rem] w-[34rem]" />
       <PlanetaBorda src={marca.lua2} className="top-1/4 -left-48 hidden w-80 opacity-80 lg:block" />
       <div aria-hidden="true" className="brilho brilho-azul top-24 -right-32 h-[30rem] w-[30rem]" />
 

@@ -25,14 +25,13 @@ export function Hero() {
         height={941}
         decoding="async"
         fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover object-[62%_center] lg:left-auto lg:w-[74%] lg:[mask-image:linear-gradient(90deg,transparent,#000_32%)]"
+        className="absolute inset-0 h-full w-full object-cover object-[62%_center] [mask-image:linear-gradient(180deg,#000_70%,transparent)] lg:left-auto lg:w-[74%] lg:[mask-image:linear-gradient(90deg,transparent,#000_32%),linear-gradient(180deg,#000_72%,transparent)] lg:[mask-composite:intersect]"
       />
-      {/* véus para a leitura do texto e transição para a próxima seção */}
+      {/* véu só do lado do texto (a cena se dissolve no fundo vivo da página) */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-midnight/95 via-midnight/80 to-midnight/40 lg:from-midnight lg:via-midnight/60 lg:to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-[#0b0e2a]/90 via-[#0b0e2a]/70 to-[#0b0e2a]/30 lg:from-[#0b0e2a]/85 lg:via-[#0b0e2a]/35 lg:to-transparent"
       />
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-midnight" />
       <div aria-hidden="true" className="brilho brilho-violeta top-1/3 -left-40 h-[30rem] w-[30rem]" />
 
       <div className="shell relative">
