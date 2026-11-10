@@ -184,8 +184,12 @@ export const servicos: Servico[] = [
 
 // ------------------------------------------------------------
 // Portfólio
-// tipo 'demonstracao' SEMPRE mostra a etiqueta "Projeto demonstrativo".
-// imagem: caminho em public/portfolio/ (ex.: '/portfolio/padaria.webp').
+// tipo define a etiqueta do cartão:
+//   'cliente'      → "Cliente"              (site feito para um cliente)
+//   'proprio'      → "Projeto próprio"      (projeto seu, não encomendado)
+//   'demonstracao' → "Projeto demonstrativo" (exemplo fictício)
+// Nunca marque como 'cliente' algo que não foi feito para um cliente.
+// imagem: caminho em public/portfolio/ (captura de tela 1200×750, 16:10).
 // Se `imagem` ficar vazia, é gerado um placeholder em CSS com `cor`.
 // ------------------------------------------------------------
 
@@ -194,43 +198,60 @@ export interface ItemPortfolio {
   descricao: string
   imagem: string
   link?: string
-  tipo: 'cliente' | 'demonstracao'
+  tipo: 'cliente' | 'proprio' | 'demonstracao'
   /** Só usado no placeholder em CSS: gradiente de fundo */
   cor?: [string, string]
 }
 
 export const portfolioSecao = {
   selo: 'PORTFÓLIO',
-  tituloAntes: 'Projetos ',
-  tituloDestaque: 'recentes',
-  subtitulo: 'Alguns exemplos do tipo de site que eu crio.',
-  etiquetaDemonstracao: 'Projeto demonstrativo',
-  etiquetaCliente: 'Cliente',
-  botaoVer: 'Ver site',
+  tituloAntes: 'Projetos que eu ',
+  tituloDestaque: 'desenvolvi',
+  subtitulo: 'Aplicações web criadas por mim e publicadas. Clique para ver cada uma funcionando.',
+  etiquetas: {
+    cliente: 'Cliente',
+    proprio: 'Projeto próprio',
+    demonstracao: 'Projeto demonstrativo',
+  },
+  botaoVer: 'Ver projeto',
 }
 
 export const portfolio: ItemPortfolio[] = [
   {
-    titulo: 'Padaria Exemplo',
-    descricao: 'Página única com cardápio, horários, localização e pedido pelo WhatsApp.',
-    imagem: '',
-    tipo: 'demonstracao',
-    cor: ['#F59E0B', '#B45309'],
+    titulo: 'Nightfolio',
+    descricao:
+      'Controle financeiro pessoal com painel, extrato, metas e projeção de investimentos calculada em Rust/WebAssembly.',
+    imagem: '/portfolio/nightfolio.webp',
+    link: 'https://gustavoserafim10.github.io/CadernoFinancas/',
+    tipo: 'proprio',
   },
   {
-    titulo: 'Estúdio de Beleza Exemplo',
-    descricao: 'Site institucional com serviços, galeria de trabalhos e agendamento pelo WhatsApp.',
-    imagem: '',
-    tipo: 'demonstracao',
-    cor: ['#EC4899', '#8B5CF6'],
+    titulo: 'ServiceFlow',
+    descricao:
+      'Sistema de chamados de TI com painel de indicadores: SLA cumprido, tempo médio de resolução e chamados por prioridade e categoria.',
+    imagem: '/portfolio/serviceflow.webp',
+    link: 'https://gustavoserafim10.github.io/serviceflow/#/',
+    tipo: 'proprio',
   },
   {
-    titulo: 'Loja de Roupas Exemplo',
-    descricao: 'Catálogo de produtos com fotos, preços e pedido direto no WhatsApp.',
-    imagem: '',
-    tipo: 'demonstracao',
-    cor: ['#00D4FF', '#1677FF'],
+    titulo: 'Análise de Fut',
+    descricao:
+      'Motor de análise pré-jogo: cadastro da partida, estatísticas, odds de mercado e um checklist até a decisão.',
+    imagem: '/portfolio/analisefut.webp',
+    link: 'https://gustavoserafim10.github.io/AnaliseFut/#',
+    tipo: 'proprio',
   },
+  {
+    titulo: 'QuantifySports',
+    descricao:
+      'Laboratório de partidas: compara as estatísticas dos times e usa simulação Monte Carlo para estimar o valor das odds.',
+    imagem: '/portfolio/quantify.webp',
+    link: 'https://gustavoserafim10.github.io/ProjetoQuantiFy/',
+    tipo: 'proprio',
+  },
+  // PENDENTE: Assistente de Mudanças. O link
+  // https://gustavoserafim10.github.io/assistente-mudancas/ dá erro 404 (GitHub Pages).
+  // Quando o site estiver no ar, adicione aqui com a captura em public/portfolio/.
 ]
 
 // ------------------------------------------------------------

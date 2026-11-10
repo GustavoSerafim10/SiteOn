@@ -5,16 +5,22 @@ import { ExternalLink } from '../components/ExternalLink'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 
+const estiloEtiqueta: Record<ItemPortfolio['tipo'], string> = {
+  cliente: 'bg-cyan text-midnight',
+  proprio: 'bg-gradient-to-r from-cyan to-violet text-midnight',
+  demonstracao: 'bg-midnight/85 text-white ring-1 ring-white/25',
+}
+
 function Capa({ item }: { item: ItemPortfolio }) {
   if (item.imagem) {
     return (
       <img
         src={item.imagem}
-        alt={`Captura de tela do site ${item.titulo}`}
+        alt={`Captura de tela do projeto ${item.titulo}`}
         loading="lazy"
         decoding="async"
-        width={800}
-        height={500}
+        width={1200}
+        height={750}
         className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
       />
     )
@@ -43,29 +49,24 @@ export function Portfolio() {
       <div className="shell relative">
         <SectionHeading id="portfolio-titulo" {...portfolioSecao} />
 
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+        <ul className="grid gap-6 md:grid-cols-2 xl:gap-8">
           {portfolio.map((item, i) => (
-            <Reveal as="li" key={item.titulo} delay={i * 100} className="flex">
-              <article className="card group flex w-full flex-col overflow-hidden">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-t-[1.2rem]">
+            <Reveal as="li" key={item.titulo} delay={(i % 2) * 120} className="flex">
+              <article className="card group flex w-full flex-col overflow-hidden hover:-translate-y-1">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-t-[1.2rem] border-b border-white/10">
                   <Capa item={item} />
                   <span
-                    className={`absolute top-3 left-3 rounded-full px-3 py-1 text-xs font-bold ${
-                      item.tipo === 'demonstracao' ? 'bg-midnight/85 text-white ring-1 ring-white/25' : 'bg-cyan text-midnight'
-                    }`}
+                    className={`absolute bottom-4 left-4 rounded-full px-3 py-1 text-xs font-bold shadow-lg ${estiloEtiqueta[item.tipo]}`}
                   >
-                    {item.tipo === 'demonstracao' ? portfolioSecao.etiquetaDemonstracao : portfolioSecao.etiquetaCliente}
+                    {portfolioSecao.etiquetas[item.tipo]}
                   </span>
                 </div>
 
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-base font-bold sm:text-lg">{item.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">{item.descricao}</p>
+                <div className="flex flex-1 flex-col p-6 sm:p-8">
+                  <h3 className="text-xl font-bold">{item.titulo}</h3>
+                  <p className="mt-2 text-base leading-relaxed text-slate-300">{item.descricao}</p>
                   {item.link && (
-                    <ExternalLink
-                      href={item.link}
-                      className="mt-5 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-cyan hover:underline"
-                    >
+                    <ExternalLink href={item.link} className="btn-secondary mt-6 self-start px-5 py-2.5 text-sm">
                       {portfolioSecao.botaoVer}
                       <span className="sr-only">: {item.titulo} (abre em nova aba)</span>
                       <ExternalLinkIcon className="h-4 w-4" aria-hidden="true" />
