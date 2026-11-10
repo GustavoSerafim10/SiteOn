@@ -46,6 +46,8 @@ export const marca = {
   /** Astronauta flutuando e lua (fundo transparente), usados na cena do topo */
   astronautaFlutuando: '/brand/astronauta-flutuando.webp',
   lua: '/brand/lua.webp',
+  /** Astronauta estendendo a mão (bloco final "Vamos começar?") */
+  astronautaAlcancando: '/brand/astronauta-alcancando.webp',
   nome: 'GUVIX',
 }
 
