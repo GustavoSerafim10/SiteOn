@@ -37,13 +37,34 @@ function SiteGenerico({ compacto = false }: { compacto?: boolean }) {
           </div>
         ))}
       </div>
+
+      {!compacto && (
+        <>
+          {/* galeria */}
+          <div className="grid grid-cols-4 gap-2">
+            {['from-cyan/40 to-blue/30', 'from-violet/40 to-navy', 'from-blue/40 to-violet/30', 'from-cyan/30 to-navy'].map(
+              (g) => (
+                <div key={g} className={`aspect-[4/3] rounded-md bg-gradient-to-br ${g}`} />
+              ),
+            )}
+          </div>
+          {/* faixa de contato */}
+          <div className="mt-auto flex items-center justify-between rounded-md bg-navy/70 p-2.5">
+            <div className="space-y-1.5">
+              <div className="h-1.5 w-24 rounded-full bg-white/40" />
+              <div className="h-1.5 w-16 rounded-full bg-white/15" />
+            </div>
+            <div className="h-4 w-16 rounded-full bg-[#1FAF38]/80" />
+          </div>
+        </>
+      )}
     </div>
   )
 }
 
 export function DeviceMockup() {
   return (
-    <div aria-hidden="true" className="relative mx-auto w-full max-w-[34rem] animate-float">
+    <div aria-hidden="true" className="relative mx-auto w-full animate-float">
       {/* brilho de fundo */}
       <div className="absolute inset-x-10 top-10 bottom-0 -z-10 rounded-full bg-blue/20 blur-3xl" />
 

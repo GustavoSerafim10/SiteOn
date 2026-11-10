@@ -160,6 +160,39 @@
   }
 }
 
+/* ---------- Layout largo ---------- */
+/* Ocupa a tela toda, com margem lateral proporcional (sem coluna estreita no meio) */
+.shell {
+  width: 100%;
+  max-width: 1760px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4.5vw, 5.5rem);
+}
+
+/* Faixa de fundo de ponta a ponta, para separar seções */
+.band {
+  background: linear-gradient(180deg, rgb(15 26 53 / 0.7), rgb(8 13 27 / 0.35));
+  border-block: 1px solid rgb(148 163 184 / 0.08);
+}
+
+/* ---------- Horizonte de planeta (inspirado nas artes da marca) ---------- */
+/* Elipse achatada (leve de renderizar): a borda de cima forma a curva do horizonte */
+.planeta {
+  position: absolute;
+  left: 50%;
+  width: max(170%, 900px);
+  height: 640px;
+  transform: translateX(-50%);
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  background: linear-gradient(180deg, #0f1a35 0%, #080d1b 45%);
+  box-shadow:
+    0 -1px 0 rgb(0 212 255 / 0.6),
+    0 -14px 50px -8px rgb(22 119 255 / 0.55),
+    0 -70px 180px -40px rgb(139 92 246 / 0.4);
+  pointer-events: none;
+}
+
 /* ---------- Fundo com estrelas (CSS puro) ---------- */
 .starfield,
 .starfield::before,

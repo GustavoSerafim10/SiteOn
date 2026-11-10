@@ -1,43 +1,62 @@
-import { INSTAGRAM_LINK, marca, rodape, SLOGAN, WHATSAPP_LINK } from '../content'
+import { INSTAGRAM_LINK, marca, menu, rodape, WHATSAPP_LINK } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
 import { InstagramIcon, WhatsAppIcon } from '../components/BrandIcons'
 import { Logo } from '../components/Logo'
 
 const estiloLink =
-  'inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:border-cyan hover:text-cyan'
+  'inline-flex items-center gap-2.5 text-sm font-medium text-slate-300 transition-colors hover:text-cyan sm:text-[0.95rem]'
 
 export function Rodape() {
   const ano = new Date().getFullYear()
   return (
-    <footer className="relative border-t border-white/10 py-12 pb-28 sm:pb-12">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center sm:px-6 md:flex-row md:justify-between md:text-left">
+    <footer className="relative border-t border-white/10 pt-16 pb-40 sm:pb-12">
+      <div className="shell grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <Logo src={marca.logoMonoBranco} className="h-7" />
-          <p className="mt-3 font-display text-[0.7rem] font-semibold tracking-[0.25em] text-slate-300 uppercase">
-            {SLOGAN.slice(0, SLOGAN.lastIndexOf(' ') + 1)}
-            <span className="text-gradient">{SLOGAN.slice(SLOGAN.lastIndexOf(' ') + 1)}</span>
-          </p>
+          {/* logo completo, com o slogan "Tecnologia que transforma." */}
+          <Logo src={marca.logoHorizontal} className="h-16 sm:h-20" alt="GUVIX — Tecnologia que transforma." />
         </div>
 
-        <ul className="flex flex-wrap items-center justify-center gap-3">
-          <li>
-            <ExternalLink href={WHATSAPP_LINK} className={estiloLink}>
-              <WhatsAppIcon className="h-4 w-4" />
-              {rodape.whatsappLabel}
-            </ExternalLink>
-          </li>
-          <li>
-            <ExternalLink href={INSTAGRAM_LINK} className={estiloLink}>
-              <InstagramIcon className="h-4 w-4" />
-              {rodape.instagramLabel}
-            </ExternalLink>
-          </li>
-        </ul>
+        <nav aria-label="Rodapé">
+          <p className="font-display text-xs font-semibold tracking-[0.2em] text-cyan uppercase">
+            {rodape.tituloNavegacao}
+          </p>
+          <ul className="mt-5 space-y-3">
+            {menu.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} className={estiloLink}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div>
+          <p className="font-display text-xs font-semibold tracking-[0.2em] text-cyan uppercase">
+            {rodape.tituloContato}
+          </p>
+          <ul className="mt-5 space-y-3">
+            <li>
+              <ExternalLink href={WHATSAPP_LINK} className={estiloLink}>
+                <WhatsAppIcon className="h-5 w-5" />
+                {rodape.whatsappLabel}
+              </ExternalLink>
+            </li>
+            <li>
+              <ExternalLink href={INSTAGRAM_LINK} className={estiloLink}>
+                <InstagramIcon className="h-5 w-5" />
+                {rodape.instagramLabel}
+              </ExternalLink>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <p className="mx-auto mt-10 max-w-6xl px-4 text-center text-xs text-cinza sm:px-6">
-        © {ano} {rodape.direitos}
-      </p>
+      <div className="shell mt-14">
+        <p className="border-t border-white/10 pt-8 text-xs text-cinza">
+          © {ano} {rodape.direitos}
+        </p>
+      </div>
     </footer>
   )
 }

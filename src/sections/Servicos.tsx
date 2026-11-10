@@ -7,21 +7,21 @@ import { SectionHeading } from '../components/SectionHeading'
 
 export function Servicos() {
   return (
-    <section id="servicos" aria-labelledby="servicos-titulo" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="servicos" aria-labelledby="servicos-titulo" className="relative py-20 sm:py-28">
+      <div className="shell">
         <SectionHeading id="servicos-titulo" {...servicosSecao} />
 
         {PRECO_A_PARTIR_DE && (
-          <p className="-mt-6 mb-10 text-center text-lg font-semibold text-white">
+          <p className="-mt-6 mb-10 text-lg font-semibold text-white">
             Sites a partir de <span className="text-cyan">{PRECO_A_PARTIR_DE}</span>
           </p>
         )}
 
-        <ul className="mx-auto grid max-w-xl gap-6 lg:max-w-none lg:grid-cols-3">
+        <ul className="grid gap-6 lg:grid-cols-3 xl:gap-8">
           {servicos.map((s, i) => (
             <Reveal as="li" key={s.titulo} delay={i * 100} className="flex">
               <article
-                className={`card flex w-full flex-col p-6 sm:p-7 ${s.destaque ? 'lg:-translate-y-2 ring-1 ring-cyan/40' : ''}`}
+                className={`card flex w-full flex-col p-6 sm:p-8 2xl:p-10 ${s.destaque ? 'lg:-translate-y-2 ring-1 ring-cyan/40' : ''}`}
               >
                 {s.destaque && (
                   <span className="absolute -top-3 left-6 rounded-full bg-gradient-to-r from-cyan to-violet px-3 py-1 text-xs font-bold text-midnight">
@@ -57,7 +57,7 @@ export function Servicos() {
           ))}
         </ul>
 
-        <p className="mt-10 text-center text-sm text-cinza">{servicosSecao.observacao}</p>
+        <p className="mt-10 text-sm text-cinza">{servicosSecao.observacao}</p>
       </div>
     </section>
   )

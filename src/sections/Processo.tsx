@@ -4,31 +4,28 @@ import { SectionHeading } from '../components/SectionHeading'
 
 export function Processo() {
   return (
-    <section id="processo" aria-labelledby="processo-titulo" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="processo" aria-labelledby="processo-titulo" className="band relative py-20 sm:py-28">
+      <div className="shell">
         <SectionHeading id="processo-titulo" {...processoSecao} />
 
-        <ol className="relative grid gap-8 lg:grid-cols-4 lg:gap-6">
-          {/* linha do tempo: vertical no celular, horizontal no desktop */}
-          <span
-            aria-hidden="true"
-            className="absolute top-2 bottom-2 left-6 w-px bg-gradient-to-b from-cyan via-blue to-violet lg:top-6 lg:right-[12.5%] lg:bottom-auto lg:left-[12.5%] lg:h-px lg:w-auto lg:bg-gradient-to-r"
-          />
+        <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 xl:gap-8">
           {processo.map((passo, i) => (
-            <Reveal
-              as="li"
-              key={passo.titulo}
-              delay={i * 120}
-              className="relative flex gap-5 lg:flex-col lg:items-center lg:text-center"
-            >
-              <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-cyan/50 bg-midnight font-display text-base font-bold text-cyan shadow-[0_0_24px_-6px_rgb(0_212_255/0.6)]">
-                {i + 1}
-              </span>
-              <div className="pt-1.5 lg:pt-0">
-                <h3 className="text-lg font-bold">{passo.titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-cinza lg:mx-auto lg:max-w-[15rem]">
-                  {passo.descricao}
-                </p>
+            <Reveal as="li" key={passo.titulo} delay={i * 120} className="relative flex">
+              <div className="card w-full p-6 sm:p-8">
+                <div className="flex items-center gap-4">
+                  <span className="font-display text-4xl font-extrabold text-transparent [-webkit-text-stroke:1px_rgb(0_212_255/0.7)] sm:text-5xl">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {/* conector até o próximo passo (desktop) */}
+                  {i < processo.length - 1 && (
+                    <span
+                      aria-hidden="true"
+                      className="hidden h-px flex-1 bg-gradient-to-r from-cyan/60 to-transparent lg:block"
+                    />
+                  )}
+                </div>
+                <h3 className="mt-6 text-lg font-bold sm:text-xl">{passo.titulo}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-cinza sm:text-base">{passo.descricao}</p>
               </div>
             </Reveal>
           ))}

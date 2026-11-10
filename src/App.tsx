@@ -1,5 +1,6 @@
 import { Header } from './sections/Header'
 import { Hero } from './sections/Hero'
+import { FaixaServicos } from './sections/FaixaServicos'
 import { Servicos } from './sections/Servicos'
 import { Portfolio } from './sections/Portfolio'
 import { Processo } from './sections/Processo'
@@ -16,6 +17,7 @@ export default function App() {
       <Header />
       <main id="conteudo" className="relative z-10">
         <Hero />
+        <FaixaServicos />
         <Servicos />
         <Portfolio />
         <Processo />

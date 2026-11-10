@@ -2,10 +2,18 @@ import { useState } from 'react'
 import { marca } from '../content'
 
 /**
- * Mostra o logo SVG de public/brand/. Se o arquivo ainda não existir,
+ * Mostra um logo SVG de public/brand/. Se o arquivo não existir,
  * cai para o texto "GUVIX" em Orbitron.
  */
-export function Logo({ src = marca.logoHorizontal, className = 'h-8' }: { src?: string; className?: string }) {
+export function Logo({
+  src = marca.logoCompacto,
+  className = 'h-9',
+  alt = marca.nome,
+}: {
+  src?: string
+  className?: string
+  alt?: string
+}) {
   const [falhou, setFalhou] = useState(false)
 
   if (falhou) {
@@ -17,5 +25,5 @@ export function Logo({ src = marca.logoHorizontal, className = 'h-8' }: { src?: 
     )
   }
 
-  return <img src={src} alt={marca.nome} className={`${className} w-auto`} onError={() => setFalhou(true)} />
+  return <img src={src} alt={alt} className={`${className} w-auto`} onError={() => setFalhou(true)} />
 }

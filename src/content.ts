@@ -16,7 +16,7 @@ export const WHATSAPP_MENSAGEM = 'Olá! Vim pelo site da Guvix e quero um orçam
 
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(WHATSAPP_MENSAGEM)}`
 
-export const INSTAGRAM_LINK = 'https://instagram.com/gu_vix'
+export const INSTAGRAM_LINK = 'https://www.instagram.com/gu_vix/'
 export const INSTAGRAM_USUARIO = '@gu_vix'
 
 export const DOMINIO = 'guvix.com.br'
@@ -30,15 +30,28 @@ export const PRECO_A_PARTIR_DE: string | null = null
 export const SLOGAN = 'Tecnologia que transforma.'
 
 // ------------------------------------------------------------
-// Marca (arquivos em public/brand/)
-// Se o arquivo não existir, o site mostra "GUVIX" em texto.
+// Marca (arquivos em public/brand/, gerados por `npm run logos`)
+// Se algum arquivo faltar, o site mostra "GUVIX" em texto.
 // ------------------------------------------------------------
 
 export const marca = {
+  /** Símbolo + GUVIX, sem slogan (cabeçalho) */
+  logoCompacto: '/brand/guvix-logo-compacto.svg',
+  /** Símbolo + GUVIX + slogan (rodapé) */
   logoHorizontal: '/brand/guvix-logo-horizontal.svg',
   logoMonoBranco: '/brand/guvix-logo-mono-branco.svg',
+  simbolo: '/brand/guvix-simbolo.svg',
   nome: 'GUVIX',
 }
+
+/** Faixa logo abaixo do topo, com o que a Guvix faz */
+export const faixaServicos: { icone: IconeNome; texto: string }[] = [
+  { icone: 'landing', texto: 'Landing pages' },
+  { icone: 'institucional', texto: 'Sites institucionais' },
+  { icone: 'catalogo', texto: 'Catálogos com pedido no WhatsApp' },
+  { icone: 'celular', texto: 'Feito para celular' },
+  { icone: 'dominio', texto: 'Domínio no seu nome' },
+]
 
 // ------------------------------------------------------------
 // Cabeçalho
@@ -68,6 +81,7 @@ export const hero = {
   botaoPrincipal: 'Quero meu site',
   botaoSecundario: 'Ver portfólio',
   selos: ['Feito para celular', 'Domínio no seu nome', 'Suporte direto'],
+  instagramTexto: 'Veja os bastidores no Instagram',
 }
 
 // ------------------------------------------------------------
@@ -202,6 +216,9 @@ export const diferenciaisSecao = {
   selo: 'DIFERENCIAIS',
   tituloAntes: 'Por que escolher a ',
   tituloDestaque: 'Guvix',
+  texto:
+    'Um site que trabalha por você: aparece bem no celular, carrega rápido e leva o cliente direto para a conversa no WhatsApp.',
+  botao: 'Quero meu site',
 }
 
 export const diferenciais: { icone: IconeNome; titulo: string; descricao: string }[] = [
@@ -227,6 +244,8 @@ export const duvidasSecao = {
   selo: 'DÚVIDAS',
   tituloAntes: 'Perguntas ',
   tituloDestaque: 'frequentes',
+  ajudaTitulo: 'Ficou alguma dúvida?',
+  ajudaTexto: 'Me chama no WhatsApp ou no Instagram que eu respondo pessoalmente.',
 }
 
 export const duvidas = [
@@ -279,12 +298,16 @@ export const chamadaFinal = {
   tituloDepois: '?',
   subtitulo: 'Me chama no WhatsApp e receba um orçamento sem compromisso.',
   botao: 'Falar no WhatsApp',
+  botaoInstagram: 'Seguir no Instagram',
 }
 
 export const rodape = {
   direitos: 'Guvix. Todos os direitos reservados.',
   whatsappLabel: 'WhatsApp',
   instagramLabel: INSTAGRAM_USUARIO,
+  tituloNavegacao: 'Navegação',
+  tituloContato: 'Contato',
 }
 
 export const botaoFlutuanteLabel = 'Conversar no WhatsApp'
+export const botaoFlutuanteInstagramLabel = 'Abrir o Instagram da Guvix'

@@ -38,11 +38,11 @@ function Capa({ item }: { item: ItemPortfolio }) {
 
 export function Portfolio() {
   return (
-    <section id="portfolio" aria-labelledby="portfolio-titulo" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="portfolio" aria-labelledby="portfolio-titulo" className="relative py-20 sm:py-28">
+      <div className="shell">
         <SectionHeading id="portfolio-titulo" {...portfolioSecao} />
 
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
           {portfolio.map((item, i) => (
             <Reveal as="li" key={item.titulo} delay={i * 100} className="flex">
               <article className="card group flex w-full flex-col overflow-hidden">

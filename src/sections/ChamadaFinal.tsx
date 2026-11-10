@@ -1,35 +1,42 @@
-import { chamadaFinal, WHATSAPP_LINK } from '../content'
+import { chamadaFinal, INSTAGRAM_LINK, marca, WHATSAPP_LINK } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
-import { WhatsAppIcon } from '../components/BrandIcons'
+import { InstagramIcon, WhatsAppIcon } from '../components/BrandIcons'
 import { Reveal } from '../components/Reveal'
 
+/** Faixa final de ponta a ponta, com o horizonte de planeta e o símbolo da marca */
 export function ChamadaFinal() {
   return (
-    <section aria-labelledby="cta-titulo" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-navy via-navy-deep to-midnight px-6 py-14 text-center sm:px-12 sm:py-16">
-          <div
-            aria-hidden="true"
-            className="absolute -top-24 left-1/2 h-48 w-[36rem] max-w-full -translate-x-1/2 rounded-full bg-cyan/15 blur-3xl"
-          />
-          <div aria-hidden="true" className="absolute -right-16 -bottom-24 h-56 w-56 rounded-full bg-violet/20 blur-3xl" />
+    <section aria-labelledby="cta-titulo" className="band relative overflow-hidden pt-24 pb-40 sm:pt-28 sm:pb-48">
+      <div aria-hidden="true" className="planeta top-[calc(100%-110px)]" />
+      <img
+        src={marca.simbolo}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 right-[-8%] hidden w-[42rem] -translate-y-1/2 opacity-[0.1] lg:block"
+      />
 
-          <h2 id="cta-titulo" className="relative mx-auto max-w-2xl text-2xl leading-tight font-bold sm:text-3xl lg:text-4xl">
-            {chamadaFinal.tituloAntes}
-            <span className="text-gradient whitespace-nowrap">{chamadaFinal.tituloDestaque}</span>
-            {chamadaFinal.tituloDepois}
-          </h2>
-          <p className="relative mx-auto mt-4 max-w-xl text-base text-cinza sm:text-lg">{chamadaFinal.subtitulo}</p>
+      <Reveal className="shell relative">
+        <h2
+          id="cta-titulo"
+          className="max-w-4xl text-[1.9rem] leading-[1.12] font-bold sm:text-5xl lg:text-[3.4rem] 2xl:text-[4rem]"
+        >
+          {chamadaFinal.tituloAntes}
+          <span className="text-gradient whitespace-nowrap">{chamadaFinal.tituloDestaque}</span>
+          {chamadaFinal.tituloDepois}
+        </h2>
+        <p className="mt-6 max-w-2xl text-base text-cinza sm:text-xl">{chamadaFinal.subtitulo}</p>
 
-          <ExternalLink
-            href={WHATSAPP_LINK}
-            className="btn-primary relative mt-9 px-8 py-4 text-lg sm:px-10 sm:py-5 sm:text-xl"
-          >
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <ExternalLink href={WHATSAPP_LINK} className="btn-primary px-8 py-4 text-lg sm:px-10 sm:py-5 sm:text-xl">
             <WhatsAppIcon className="h-6 w-6" />
             {chamadaFinal.botao}
           </ExternalLink>
-        </Reveal>
-      </div>
+          <ExternalLink href={INSTAGRAM_LINK} className="btn-secondary px-8 py-4 text-lg sm:py-5">
+            <InstagramIcon className="h-5 w-5" />
+            {chamadaFinal.botaoInstagram}
+          </ExternalLink>
+        </div>
+      </Reveal>
     </section>
   )
 }
