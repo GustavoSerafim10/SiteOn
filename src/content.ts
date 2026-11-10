@@ -49,6 +49,8 @@ export const marca = {
   astronautaCloseup: '/brand/guvix-hero-astronauta.webp',
   /** Segunda lua, usada nas bordas das seções */
   lua2: '/brand/lua-2.webp',
+  /** Fundo de nebulosa (bloco final "Vamos começar?") */
+  fundoNebula: '/brand/guvix-fundo-espacial-nebula.webp',
   nome: 'GUVIX',
 }
 

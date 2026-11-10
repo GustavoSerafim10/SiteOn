@@ -7,8 +7,17 @@ import { Reveal } from '../components/Reveal'
 /** "Vamos começar?": faixa de ponta a ponta, texto à esquerda e close do astronauta saindo pela direita */
 export function ChamadaFinal() {
   return (
-    <section aria-labelledby="cta-titulo" className="band relative overflow-hidden">
-      <div aria-hidden="true" className="grade opacity-60" />
+    <section
+      aria-labelledby="cta-titulo"
+      className="relative overflow-hidden bg-cover bg-center"
+      style={{
+        // degradê escuro à esquerda (texto legível) + fades em cima e embaixo (transição suave)
+        backgroundImage: `linear-gradient(180deg, #080d1b 0%, rgb(8 13 27 / 0) 18%, rgb(8 13 27 / 0) 82%, #080d1b 100%),
+          linear-gradient(90deg, rgb(5 10 28 / 0.93) 0%, rgb(5 10 28 / 0.78) 45%, rgb(5 10 28 / 0.4) 100%),
+          url('${marca.fundoNebula}')`,
+      }}
+    >
+      <div aria-hidden="true" className="grade opacity-30" />
       <div aria-hidden="true" className="brilho brilho-ciano -top-32 left-10 h-80 w-80" />
 
       {/* close do astronauta, esfumado à esquerda e embaixo para se fundir ao fundo */}
