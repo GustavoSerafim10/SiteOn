@@ -1,11 +1,50 @@
 import { useRef } from 'react'
-import { ArrowLeft, ArrowRight, ExternalLink as ExternalLinkIcon } from 'lucide-react'
-import { marca, portfolio, portfolioSecao } from '../content'
+import { ArrowLeft, ArrowRight, ExternalLink as ExternalLinkIcon, Eye } from 'lucide-react'
+import { GITHUB_LINK, hero, marca, portfolio, portfolioSecao } from '../content'
 import type { ItemPortfolio } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
+import { LaptopHolografico } from '../components/LaptopHolografico'
 import { PlanetaBorda } from '../components/PlanetaBorda'
 import { Reveal } from '../components/Reveal'
-import { SectionHeading } from '../components/SectionHeading'
+
+/** Tela do notebook: miniatura do próprio site da GUVIX (topo com o astronauta) */
+function TelaSite() {
+  return (
+    <div
+      className="relative flex h-full items-center bg-cover bg-center px-[7%]"
+      style={{ backgroundImage: `linear-gradient(90deg, rgb(8 13 27 / 0.92) 35%, rgb(8 13 27 / 0.2)), url('${marca.fundoNebula}')` }}
+    >
+      <img src={marca.logoCompacto} alt="" className="absolute top-[7%] left-[7%] h-[8%]" />
+      <div className="relative z-10 w-[55%]">
+        <p className="font-display text-[clamp(0.55rem,1.6vw,1.1rem)] leading-tight font-extrabold text-white">
+          {hero.tituloAntes}
+          <span className="text-gradient">{hero.tituloDestaque}</span>
+        </p>
+        <span className="mt-[6%] inline-block rounded-full bg-blue-btn px-[8%] py-[3%] text-[clamp(0.35rem,0.8vw,0.6rem)] font-bold text-white">
+          {hero.botaoPrincipal}
+        </span>
+      </div>
+      <img src={marca.astronautaAlcancando} alt="" className="absolute right-[2%] bottom-0 h-[92%]" />
+    </div>
+  )
+}
+
+/** Tela do celular: versão móvel do mesmo topo */
+function TelaSiteCelular() {
+  return (
+    <div
+      className="relative flex h-full flex-col bg-cover bg-center p-[10%]"
+      style={{ backgroundImage: `linear-gradient(180deg, rgb(8 13 27 / 0.9) 30%, rgb(8 13 27 / 0.3)), url('${marca.fundoNebula}')` }}
+    >
+      <img src={marca.logoCompacto} alt="" className="h-[5%] self-start" />
+      <p className="mt-[18%] font-display text-[clamp(0.4rem,1vw,0.7rem)] leading-tight font-extrabold text-white">
+        {hero.tituloAntes}
+        <span className="text-gradient">{hero.tituloDestaque}</span>
+      </p>
+      <img src={marca.astronautaAlcancando} alt="" className="mt-auto w-full" />
+    </div>
+  )
+}
 
 const estiloEtiqueta: Record<ItemPortfolio['tipo'], string> = {
   cliente: 'bg-cyan text-midnight',
@@ -66,16 +105,40 @@ export function Portfolio() {
       <PlanetaBorda src={marca.lua} className="-top-24 -right-40 hidden w-[24rem] opacity-60 lg:block" />
 
       <div className="shell relative">
-        <SectionHeading id="portfolio-titulo" {...portfolioSecao}>
-          <div className="mt-6 flex gap-3 lg:justify-end">
-            <button type="button" aria-label="Projeto anterior" aria-controls="portfolio-trilho" onClick={() => mover(-1)} className={botaoSeta}>
-              <ArrowLeft className="h-5 w-5" aria-hidden="true" />
-            </button>
-            <button type="button" aria-label="Próximo projeto" aria-controls="portfolio-trilho" onClick={() => mover(1)} className={botaoSeta}>
-              <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </div>
-        </SectionHeading>
+        <div className="mb-12 grid items-center gap-10 xl:grid-cols-[0.9fr_1.1fr]">
+          <Reveal>
+            <span className="eyebrow">{portfolioSecao.selo}</span>
+            <h2
+              id="portfolio-titulo"
+              className="mt-5 text-[2.1rem] leading-[1.1] font-extrabold sm:text-5xl xl:text-[3.4rem] 2xl:text-[3.8rem]"
+            >
+              {portfolioSecao.tituloAntes}
+              <span className="text-gradient-vivo">{portfolioSecao.tituloDestaque}</span>
+            </h2>
+            <p className="mt-4 text-xl text-white sm:text-2xl">{portfolioSecao.subtitulo}</p>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">{portfolioSecao.texto}</p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <ExternalLink href={GITHUB_LINK} className="btn-primary px-7 py-4 text-base sm:text-lg">
+                <Eye className="h-5 w-5" aria-hidden="true" />
+                {portfolioSecao.botaoTodos}
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              </ExternalLink>
+              <button type="button" aria-label="Projeto anterior" aria-controls="portfolio-trilho" onClick={() => mover(-1)} className={botaoSeta}>
+                <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+              </button>
+              <button type="button" aria-label="Próximo projeto" aria-controls="portfolio-trilho" onClick={() => mover(1)} className={botaoSeta}>
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
+          </Reveal>
+
+          <LaptopHolografico
+            tela={<TelaSite />}
+            telaCelular={<TelaSiteCelular />}
+            className="mx-auto hidden w-full max-w-2xl sm:block"
+          />
+        </div>
 
         <ul
           id="portfolio-trilho"

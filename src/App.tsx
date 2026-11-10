@@ -4,7 +4,6 @@ import { Vitrine } from './sections/Vitrine'
 import { Servicos } from './sections/Servicos'
 import { Portfolio } from './sections/Portfolio'
 import { Processo } from './sections/Processo'
-import { Diferenciais } from './sections/Diferenciais'
 import { Duvidas } from './sections/Duvidas'
 import { ChamadaFinal } from './sections/ChamadaFinal'
 import { Rodape } from './sections/Rodape'
@@ -21,7 +20,6 @@ export default function App() {
         <Servicos />
         <Portfolio />
         <Processo />
-        <Diferenciais />
         <Duvidas />
         <ChamadaFinal />
       </main>

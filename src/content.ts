@@ -19,6 +19,9 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIC
 export const INSTAGRAM_LINK = 'https://www.instagram.com/gu_vix/'
 export const INSTAGRAM_USUARIO = '@gu_vix'
 
+/** Botão "Ver todos os projetos" do portfólio */
+export const GITHUB_LINK = 'https://github.com/gustavoserafim10'
+
 export const DOMINIO = 'guvix.com.br'
 
 /**
@@ -141,11 +144,8 @@ export type IconeNome =
 
 export interface Servico {
   icone: IconeNome
-  /** etiqueta curta acima do título, ex.: "Começar" */
-  etiqueta: string
   titulo: string
   descricao: string
-  inclui: string[]
   destaque?: string
 }
 
@@ -153,36 +153,56 @@ export const servicosSecao = {
   selo: 'SERVIÇOS',
   tituloAntes: 'O site certo para o ',
   tituloDestaque: 'seu negócio',
-  subtitulo: 'Escolha o formato que combina com o momento da sua empresa.',
+  subtitulo: 'Soluções digitais para colocar seu negócio na internet: do site simples ao sistema sob medida.',
+  botaoPrincipal: 'Quero meu site',
   botao: 'Pedir orçamento',
   observacao: 'Domínio, hospedagem e funcionalidades extras são combinados no orçamento.',
 }
 
+/**
+ * Os 6 cartões da seção. Os 4 primeiros são serviços; Performance e
+ * Atendimento direto são diferenciais (sem promessa de nota, prazo ou resultado).
+ */
 export const servicos: Servico[] = [
   {
     icone: 'landing',
-    etiqueta: 'Começar',
-    titulo: 'Página única (Landing Page)',
-    descricao:
-      'Uma página com seus serviços, fotos, localização, botão de WhatsApp e redes sociais. Ideal para começar.',
-    inclui: ['Seus serviços e fotos', 'Mapa e localização', 'Botão de WhatsApp', 'Links das redes sociais'],
+    titulo: 'Landing Page',
+    descricao: 'Uma página com seus serviços, fotos, localização e botão de WhatsApp.',
   },
   {
     icone: 'institucional',
-    etiqueta: 'Presença',
-    titulo: 'Site institucional',
-    descricao: 'De 3 a 5 páginas, com a história do negócio, serviços, galeria e contato.',
-    inclui: ['De 3 a 5 páginas', 'História do negócio', 'Galeria de fotos', 'Página de contato'],
+    titulo: 'Site Institucional',
+    descricao: 'De 3 a 5 páginas: história do negócio, serviços, galeria e contato.',
     destaque: 'Mais procurado',
   },
   {
     icone: 'catalogo',
-    etiqueta: 'Vender',
     titulo: 'Catálogo com pedido pelo WhatsApp',
-    descricao:
-      'Seus produtos com fotos e preços, e o cliente faz o pedido direto no seu WhatsApp.',
-    inclui: ['Produtos com fotos e preços', 'Organização por categorias', 'Pedido direto no WhatsApp'],
+    descricao: 'Seus produtos com fotos e preços, com pedido direto no seu WhatsApp.',
   },
+  {
+    icone: 'criacao',
+    titulo: 'Desenvolvimento Personalizado',
+    descricao: 'Sistemas, painéis e aplicações web sob medida para o seu negócio.',
+  },
+  {
+    icone: 'rapido',
+    titulo: 'Performance',
+    descricao: 'Sites leves e otimizados, que abrem rápido e navegam sem travar.',
+  },
+  {
+    icone: 'atendimento',
+    titulo: 'Atendimento Direto',
+    descricao: 'Você fala comigo, do primeiro contato até o site no ar.',
+  },
+]
+
+/** Faixa de benefícios embaixo dos cartões. Só benefícios reais. */
+export const beneficios: { icone: IconeNome; titulo: string; descricao: string }[] = [
+  { icone: 'celular', titulo: 'Feito para celular', descricao: 'Pensado para quem acessa pelo telefone.' },
+  { icone: 'dominio', titulo: 'Domínio no seu nome', descricao: 'Registrado no seu CPF ou CNPJ.' },
+  { icone: 'proposta', titulo: 'Orçamento sem compromisso', descricao: 'Você decide depois da proposta.' },
+  { icone: 'conversa', titulo: 'Você acompanha tudo', descricao: 'E pede ajustes durante a criação.' },
 ]
 
 // ------------------------------------------------------------
@@ -209,9 +229,12 @@ export interface ItemPortfolio {
 
 export const portfolioSecao = {
   selo: 'PORTFÓLIO',
-  tituloAntes: 'Projetos que eu ',
-  tituloDestaque: 'desenvolvi',
-  subtitulo: 'Aplicações web criadas por mim. Nas que estão publicadas, é só clicar para ver funcionando.',
+  tituloAntes: 'Meu ',
+  tituloDestaque: 'Portfólio',
+  subtitulo: 'Projetos reais que eu desenvolvi.',
+  texto:
+    'Sistemas, painéis e aplicações web criados por mim. Nos projetos publicados, é só clicar para ver funcionando.',
+  botaoTodos: 'Ver todos os projetos',
   etiquetas: {
     cliente: 'Cliente',
     proprio: 'Projeto próprio',
@@ -286,34 +309,6 @@ export const processo: { icone: IconeNome; titulo: string; descricao: string }[]
 ]
 
 // ------------------------------------------------------------
-// Diferenciais
-// ------------------------------------------------------------
-
-export const diferenciaisSecao = {
-  selo: 'DIFERENCIAIS',
-  tituloAntes: 'Por que escolher a ',
-  tituloDestaque: 'Guvix',
-  texto:
-    'Um site que trabalha por você: aparece bem no celular, carrega rápido e leva o cliente direto para a conversa no WhatsApp.',
-  botao: 'Quero meu site',
-}
-
-export const diferenciais: { icone: IconeNome; titulo: string; descricao: string }[] = [
-  {
-    icone: 'celular',
-    titulo: 'Pensado para celular',
-    descricao: 'A maioria dos seus clientes vai acessar pelo telefone.',
-  },
-  { icone: 'rapido', titulo: 'Rápido de verdade', descricao: 'Site leve, que abre em segundos.' },
-  { icone: 'dominio', titulo: 'Domínio no seu nome', descricao: 'O endereço é seu, sem amarras.' },
-  {
-    icone: 'atendimento',
-    titulo: 'Atendimento direto',
-    descricao: 'Você fala comigo, sem intermediários.',
-  },
-]
-
-// ------------------------------------------------------------
 // Dúvidas frequentes
 // ------------------------------------------------------------
 
@@ -321,6 +316,7 @@ export const duvidasSecao = {
   selo: 'DÚVIDAS',
   tituloAntes: 'Perguntas ',
   tituloDestaque: 'frequentes',
+  subtitulo: 'Tire suas dúvidas e encontre respostas rápidas.',
   ajudaTitulo: 'Ficou alguma dúvida?',
   ajudaTexto: 'Me chama no WhatsApp ou no Instagram que eu respondo pessoalmente.',
 }
