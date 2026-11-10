@@ -2,6 +2,7 @@ import { ArrowRight, Check } from 'lucide-react'
 import { hero, INSTAGRAM_LINK, INSTAGRAM_USUARIO, marca, WHATSAPP_LINK } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
 import { InstagramIcon, WhatsAppIcon } from '../components/BrandIcons'
+import { PlanetaBorda } from '../components/PlanetaBorda'
 
 export function Hero() {
   return (
@@ -17,8 +18,12 @@ export function Hero() {
         className="pointer-events-none absolute -top-40 -right-40 h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgb(0_212_255/0.38),rgb(139_92_246/0.22)_45%,transparent_70%)] blur-2xl"
       />
       <div aria-hidden="true" className="brilho brilho-violeta top-1/3 -left-40 h-[30rem] w-[30rem]" />
-      {/* horizonte de planeta */}
-      <div aria-hidden="true" className="planeta top-[calc(100%-90px)] lg:top-[calc(100%-120px)]" />
+      {/* planetas nas bordas, como no layout */}
+      <PlanetaBorda
+        src={marca.lua}
+        className="cena-lua top-20 -right-48 hidden w-[26rem] opacity-90 md:block xl:-right-40 xl:w-[34rem]"
+      />
+      <PlanetaBorda src={marca.lua2} className="-bottom-28 -left-28 w-60 opacity-80 sm:w-72 lg:-bottom-36 lg:w-96" />
 
       <div className="shell relative grid items-center gap-16 lg:grid-cols-[1.05fr_1fr] lg:gap-12 xl:gap-20">
         <div>
@@ -71,30 +76,17 @@ export function Hero() {
         </div>
 
         {/* cena: o astronauta da marca flutua em direção à lua, como se fosse pegá-la */}
-        <div aria-hidden="true" className="relative mx-auto aspect-[1/0.95] w-full max-w-sm sm:max-w-lg lg:max-w-[44rem]">
-          {/* brilho atrás da lua */}
-          <div className="brilho brilho-violeta top-[2%] right-[4%] h-[60%] w-[60%] opacity-70" />
-          <div className="brilho brilho-ciano top-[10%] right-[20%] h-[40%] w-[40%]" />
-
+        {/* astronauta da marca estendendo a mão em direção ao texto */}
+        <div aria-hidden="true" className="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-[40rem]">
+          <div className="brilho brilho-azul inset-[10%] opacity-80" />
           <img
-            src={marca.lua}
+            src={marca.astronautaAlcancando}
             alt=""
-            width={640}
-            height={639}
+            width={907}
+            height={935}
             decoding="async"
-            className="cena-lua absolute top-0 right-0 w-[64%]"
-          />
-
-          {/* rastro de luz do astronauta até a lua */}
-          <div className="absolute top-[40%] left-[38%] h-0.5 w-[26%] origin-left -rotate-[38deg] rounded-full bg-gradient-to-r from-cyan/0 via-cyan/60 to-violet/0 blur-[1px]" />
-
-          <img
-            src={marca.astronautaFlutuando}
-            alt=""
-            width={764}
-            height={955}
-            decoding="async"
-            className="cena-astronauta absolute bottom-0 left-0 w-[52%]"
+            fetchPriority="high"
+            className="cena-astronauta relative w-full drop-shadow-[0_0_50px_rgb(22_119_255/0.4)]"
           />
         </div>
       </div>

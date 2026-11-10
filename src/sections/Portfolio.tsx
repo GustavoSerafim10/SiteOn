@@ -1,7 +1,9 @@
-import { ExternalLink as ExternalLinkIcon } from 'lucide-react'
-import { portfolio, portfolioSecao } from '../content'
+import { useRef } from 'react'
+import { ArrowLeft, ArrowRight, ExternalLink as ExternalLinkIcon } from 'lucide-react'
+import { marca, portfolio, portfolioSecao } from '../content'
 import type { ItemPortfolio } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
+import { PlanetaBorda } from '../components/PlanetaBorda'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 
@@ -22,7 +24,7 @@ function Capa({ item }: { item: ItemPortfolio }) {
         decoding="async"
         width={1200}
         height={750}
-        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
       />
     )
   }
@@ -43,29 +45,54 @@ function Capa({ item }: { item: ItemPortfolio }) {
   )
 }
 
+/** Portfólio em carrossel: rola com o dedo, com as setas ou pelo teclado */
 export function Portfolio() {
+  const trilho = useRef<HTMLUListElement>(null)
+
+  const mover = (direcao: 1 | -1) => {
+    const el = trilho.current
+    if (!el) return
+    const cartao = el.querySelector('li')
+    const passo = cartao ? cartao.getBoundingClientRect().width + 24 : el.clientWidth * 0.8
+    el.scrollBy({ left: passo * direcao, behavior: 'smooth' })
+  }
+
+  const botaoSeta =
+    'flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-navy/60 text-white transition-colors hover:border-cyan hover:text-cyan'
+
   return (
     <section id="portfolio" aria-labelledby="portfolio-titulo" className="relative overflow-hidden py-20 sm:py-28">
       <div aria-hidden="true" className="brilho brilho-ciano top-1/3 -left-32 h-[28rem] w-[28rem]" />
-      <div className="shell relative">
-        <SectionHeading id="portfolio-titulo" {...portfolioSecao} />
+      <PlanetaBorda src={marca.lua} className="-top-24 -right-40 hidden w-[24rem] opacity-60 lg:block" />
 
-        <ul className="grid gap-6 md:grid-cols-2 xl:gap-8">
-          {portfolio.map((item, i) => {
-            // com quantidade ímpar, o último cartão ocupa a linha toda (capa à esquerda, texto à direita)
-            const largo = portfolio.length % 2 === 1 && i === portfolio.length - 1
-            return (
-            <Reveal as="li" key={item.titulo} delay={(i % 2) * 120} className={`flex ${largo ? 'md:col-span-2' : ''}`}>
-              <article
-                className={`card group flex w-full flex-col overflow-hidden hover:-translate-y-1 ${largo ? 'md:flex-row md:items-center' : ''}`}
-              >
-                <div
-                  className={`relative aspect-[16/10] overflow-hidden border-white/10 ${
-                    largo
-                      ? 'rounded-t-[1.2rem] border-b md:w-1/2 md:shrink-0 md:rounded-l-[1.2rem] md:rounded-tr-none md:border-r md:border-b-0'
-                      : 'rounded-t-[1.2rem] border-b'
-                  }`}
-                >
+      <div className="shell relative">
+        <SectionHeading id="portfolio-titulo" {...portfolioSecao}>
+          <div className="mt-6 flex gap-3 lg:justify-end">
+            <button type="button" aria-label="Projeto anterior" aria-controls="portfolio-trilho" onClick={() => mover(-1)} className={botaoSeta}>
+              <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+            </button>
+            <button type="button" aria-label="Próximo projeto" aria-controls="portfolio-trilho" onClick={() => mover(1)} className={botaoSeta}>
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
+        </SectionHeading>
+
+        <ul
+          id="portfolio-trilho"
+          ref={trilho}
+          tabIndex={0}
+          aria-label="Projetos (role para os lados)"
+          className="-mx-2 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 pt-2 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {portfolio.map((item, i) => (
+            <Reveal
+              as="li"
+              key={item.titulo}
+              delay={Math.min(i, 3) * 100}
+              className="flex w-[86%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-3rem)/3)]"
+            >
+              <article className="card group flex w-full flex-col overflow-hidden hover:-translate-y-1">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-t-[1.2rem] border-b border-white/10">
                   <Capa item={item} />
                   <span
                     className={`absolute bottom-4 left-4 rounded-full px-3 py-1 text-xs font-bold shadow-lg ${estiloEtiqueta[item.tipo]}`}
@@ -74,9 +101,9 @@ export function Portfolio() {
                   </span>
                 </div>
 
-                <div className={`flex flex-1 flex-col p-6 sm:p-8 ${largo ? 'xl:p-12' : ''}`}>
-                  <h3 className={`font-bold ${largo ? 'text-xl md:text-2xl' : 'text-xl'}`}>{item.titulo}</h3>
-                  <p className="mt-2 text-base leading-relaxed text-slate-300">{item.descricao}</p>
+                <div className="flex flex-1 flex-col p-6 sm:p-7">
+                  <h3 className="text-xl font-bold">{item.titulo}</h3>
+                  <p className="mt-2 flex-1 text-base leading-relaxed text-slate-300">{item.descricao}</p>
                   {item.link && (
                     <ExternalLink href={item.link} className="btn-secondary mt-6 self-start px-5 py-2.5 text-sm">
                       {portfolioSecao.botaoVer}
@@ -87,8 +114,7 @@ export function Portfolio() {
                 </div>
               </article>
             </Reveal>
-            )
-          })}
+          ))}
         </ul>
       </div>
     </section>

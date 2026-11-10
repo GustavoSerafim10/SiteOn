@@ -1,4 +1,5 @@
-import { diferenciais, diferenciaisSecao, marca, WHATSAPP_LINK } from '../content'
+import { diferenciais, diferenciaisSecao, WHATSAPP_LINK } from '../content'
+import { DeviceMockup } from '../components/DeviceMockup'
 import { Icon } from '../components/Icon'
 import { ExternalLink } from '../components/ExternalLink'
 import { WhatsAppIcon } from '../components/BrandIcons'
@@ -12,7 +13,7 @@ const destaques = [
   { chip: 'from-cyan to-violet', brilho: 'hover:shadow-[0_12px_40px_-12px_rgb(0_212_255/0.45)]' },
 ]
 
-/** Texto + astronauta da marca à esquerda; grade 2×2 de diferenciais à direita */
+/** Texto + notebook "holográfico" à esquerda; grade 2×2 de diferenciais à direita */
 export function Diferenciais() {
   return (
     <section aria-labelledby="diferenciais-titulo" className="relative overflow-hidden py-20 sm:py-28">
@@ -34,19 +35,17 @@ export function Diferenciais() {
             {diferenciaisSecao.botao}
           </ExternalLink>
 
-          {/* astronauta da identidade visual, com bordas esfumadas */}
-          <div className="relative mt-10 hidden max-w-md lg:block">
-            <div aria-hidden="true" className="brilho brilho-violeta inset-6" />
-            <img
-              src={marca.astronauta}
-              alt=""
-              aria-hidden="true"
-              width={485}
-              height={532}
-              loading="lazy"
-              decoding="async"
-              className="relative w-full [mask-image:radial-gradient(ellipse_50%_50%_at_50%_48%,#000_55%,transparent_100%)]"
-            />
+          {/* notebook + celular sobre uma plataforma de anéis de luz (holograma) */}
+          <div aria-hidden="true" className="relative mt-14 max-w-lg">
+            <div className="absolute inset-x-0 -bottom-6 h-28">
+              <span className="absolute inset-0 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgb(22_119_255/0.6),transparent_65%)] blur-md" />
+              <span className="absolute -inset-x-[4%] inset-y-[6%] rounded-[50%] border border-blue/50" />
+              <span className="absolute inset-x-[6%] inset-y-[22%] rounded-[50%] border-2 border-cyan/80 shadow-[0_0_24px_rgb(0_212_255/0.9)]" />
+              <span className="absolute inset-x-[22%] inset-y-[38%] rounded-[50%] border border-violet/80 shadow-[0_0_18px_rgb(139_92_246/0.9)]" />
+            </div>
+            <div className="relative px-[6%] pb-10">
+              <DeviceMockup />
+            </div>
           </div>
         </Reveal>
 

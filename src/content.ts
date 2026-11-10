@@ -41,13 +41,14 @@ export const marca = {
   logoHorizontal: '/brand/guvix-logo-horizontal.svg',
   logoMonoBranco: '/brand/guvix-logo-mono-branco.svg',
   simbolo: '/brand/guvix-simbolo.svg',
-  /** Recorte do astronauta da arte da marca (usado em Diferenciais) */
-  astronauta: '/brand/astronauta.webp',
-  /** Astronauta flutuando e lua (fundo transparente), usados na cena do topo */
-  astronautaFlutuando: '/brand/astronauta-flutuando.webp',
+  /** Lua com fundo transparente (bordas do topo e do portfólio) */
   lua: '/brand/lua.webp',
-  /** Astronauta estendendo a mão (bloco final "Vamos começar?") */
+  /** Astronauta estendendo a mão (topo) */
   astronautaAlcancando: '/brand/astronauta-alcancando.webp',
+  /** Close do astronauta com a lua ao fundo, 445×362 (bloco final) */
+  astronautaCloseup: '/brand/guvix-hero-astronauta.webp',
+  /** Segunda lua, usada nas bordas das seções */
+  lua2: '/brand/lua-2.webp',
   nome: 'GUVIX',
 }
 

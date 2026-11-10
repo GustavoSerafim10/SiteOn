@@ -1,6 +1,7 @@
 import { ArrowRight, Check } from 'lucide-react'
-import { PRECO_A_PARTIR_DE, servicos, servicosSecao, WHATSAPP_LINK } from '../content'
+import { marca, PRECO_A_PARTIR_DE, servicos, servicosSecao, WHATSAPP_LINK } from '../content'
 import { Icon } from '../components/Icon'
+import { PlanetaBorda } from '../components/PlanetaBorda'
 import { ExternalLink } from '../components/ExternalLink'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
@@ -10,6 +11,7 @@ export function Servicos() {
     <section id="servicos" aria-labelledby="servicos-titulo" className="relative overflow-hidden py-20 sm:py-28">
       <div aria-hidden="true" className="brilho brilho-azul top-24 -right-32 h-[32rem] w-[32rem]" />
       <div aria-hidden="true" className="brilho brilho-violeta bottom-0 -left-40 h-[26rem] w-[26rem]" />
+      <PlanetaBorda src={marca.lua2} className="top-1/3 -left-44 hidden w-80 opacity-70 lg:block xl:w-96" />
       <div className="shell relative">
         <SectionHeading id="servicos-titulo" {...servicosSecao} />
 
@@ -34,8 +36,10 @@ export function Servicos() {
                 )}
 
                 <div className="flex items-center justify-between gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan/25 to-violet/25 text-cyan">
-                    <Icon nome={s.icone} className="h-6 w-6" />
+                  {/* ícone com volume: degradê, borda clara e brilho */}
+                  <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue via-[#3b4fd8] to-violet text-white shadow-[0_10px_30px_-6px_rgb(22_119_255/0.7),inset_0_1px_0_rgb(255_255_255/0.35)] ring-1 ring-white/20">
+                    <span aria-hidden="true" className="absolute inset-x-2 top-1 h-1/2 rounded-t-xl bg-gradient-to-b from-white/25 to-transparent" />
+                    <Icon nome={s.icone} className="relative h-8 w-8 drop-shadow-[0_0_8px_rgb(0_212_255/0.8)]" />
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 py-1 pr-3 pl-1 text-xs font-semibold text-white">
                     <span className="flex h-5 w-5 items-center justify-center rounded-full border border-white/20 transition-transform group-hover:translate-x-0.5">
