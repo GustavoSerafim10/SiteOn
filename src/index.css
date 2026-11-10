@@ -1,0 +1,240 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-midnight: #080d1b;
+  --color-navy: #17264b;
+  --color-navy-deep: #0f1a35;
+  --color-blue: #1677ff;
+  /* Tom do Blue usado como fundo de botão com texto branco (contraste AA ≥ 4.5:1) */
+  --color-blue-btn: #0f6af0;
+  --color-blue-btn-hover: #0b5bd6;
+  --color-cyan: #00d4ff;
+  --color-violet: #8b5cf6;
+  --color-cinza: #94a3b8;
+
+  --font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    background-color: var(--color-midnight);
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-midnight);
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: rgb(0 212 255 / 0.3);
+  }
+}
+
+@layer components {
+  /* Texto com gradiente cyan → blue → violet */
+  .text-gradient {
+    background: linear-gradient(90deg, var(--color-cyan), var(--color-blue) 55%, var(--color-violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Cartão com borda em gradiente no hover/foco */
+  .card {
+    position: relative;
+    border-radius: 1.25rem;
+    background: linear-gradient(180deg, rgb(23 38 75 / 0.75), rgb(15 26 53 / 0.75));
+    border: 1px solid rgb(148 163 184 / 0.14);
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-blue), var(--color-violet));
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .card:hover,
+  .card:focus-within {
+    border-color: transparent;
+    box-shadow: 0 10px 40px -12px rgb(0 212 255 / 0.25);
+  }
+  .card:hover::before,
+  .card:focus-within::before {
+    opacity: 1;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-blue-btn);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 8px 28px -10px rgb(22 119 255 / 0.7);
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+  .btn-primary:hover {
+    background: var(--color-blue-btn-hover);
+    box-shadow: 0 10px 34px -8px rgb(0 212 255 / 0.55);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgb(148 163 184 / 0.35);
+    color: #fff;
+    font-weight: 600;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-cyan);
+    background: rgb(0 212 255 / 0.06);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgb(0 212 255 / 0.3);
+    background: rgb(0 212 255 / 0.06);
+    padding: 0.375rem 0.875rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--color-cyan);
+  }
+}
+
+/* ---------- Fundo com estrelas (CSS puro) ---------- */
+.starfield,
+.starfield::before,
+.starfield::after {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+.starfield {
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgb(255 255 255 / 0.55), transparent 60%),
+    radial-gradient(1px 1px at 140px 80px, rgb(255 255 255 / 0.4), transparent 60%),
+    radial-gradient(1px 1px at 90px 160px, rgb(255 255 255 / 0.35), transparent 60%),
+    radial-gradient(1.5px 1.5px at 200px 210px, rgb(0 212 255 / 0.5), transparent 60%),
+    radial-gradient(1px 1px at 260px 40px, rgb(255 255 255 / 0.3), transparent 60%);
+  background-size: 300px 260px;
+}
+.starfield::before {
+  content: '';
+  background-image:
+    radial-gradient(1px 1px at 60px 120px, rgb(255 255 255 / 0.45), transparent 60%),
+    radial-gradient(1.5px 1.5px at 310px 260px, rgb(139 92 246 / 0.5), transparent 60%),
+    radial-gradient(1px 1px at 400px 60px, rgb(255 255 255 / 0.35), transparent 60%);
+  background-size: 470px 380px;
+  animation: twinkle 7s ease-in-out infinite alternate;
+}
+.starfield::after {
+  content: '';
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, rgb(22 119 255 / 0.14), transparent 60%),
+    radial-gradient(50rem 35rem at -10% 40%, rgb(139 92 246 / 0.09), transparent 60%);
+}
+@keyframes twinkle {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- Surgir ao rolar ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Flutuar (mockup) ---------- */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
