@@ -175,6 +175,59 @@
   border-block: 1px solid rgb(148 163 184 / 0.08);
 }
 
+/* ---------- Fundo quadriculado que some nas bordas ---------- */
+.grade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(148 163 184 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 184 / 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 20%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 70% 20%, #000 20%, transparent 75%);
+}
+
+/* ---------- Degradê que se move devagar (palavras em destaque) ---------- */
+.text-gradient-vivo {
+  background: linear-gradient(90deg, #00d4ff, #1677ff, #8b5cf6, #00d4ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: degrade 8s linear infinite;
+}
+@keyframes degrade {
+  to {
+    background-position: 300% 0;
+  }
+}
+
+/* ---------- Vitrine em movimento (marquee) ---------- */
+.vitrine {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.vitrine-trilho {
+  display: flex;
+  width: max-content;
+  gap: 1.25rem;
+  animation: vitrine 55s linear infinite;
+}
+.vitrine-trilho.reverso {
+  animation-direction: reverse;
+  animation-duration: 65s;
+}
+.vitrine:hover .vitrine-trilho {
+  animation-play-state: paused;
+}
+@keyframes vitrine {
+  to {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+}
+
 /* ---------- Horizonte de planeta (inspirado nas artes da marca) ---------- */
 /* Elipse achatada (leve de renderizar): a borda de cima forma a curva do horizonte */
 .planeta {
@@ -277,5 +330,10 @@
   .reveal {
     opacity: 1;
     transform: none;
+  }
+  /* vitrine e degradê ficam parados */
+  .vitrine-trilho,
+  .text-gradient-vivo {
+    animation: none !important;
   }
 }

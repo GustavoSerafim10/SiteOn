@@ -44,13 +44,40 @@ export const marca = {
   nome: 'GUVIX',
 }
 
-/** Faixa logo abaixo do topo, com o que a Guvix faz */
-export const faixaServicos: { icone: IconeNome; texto: string }[] = [
-  { icone: 'landing', texto: 'Landing pages' },
-  { icone: 'institucional', texto: 'Sites institucionais' },
-  { icone: 'catalogo', texto: 'Catálogos com pedido no WhatsApp' },
-  { icone: 'celular', texto: 'Feito para celular' },
-  { icone: 'dominio', texto: 'Domínio no seu nome' },
+// ------------------------------------------------------------
+// Vitrine em movimento (logo abaixo do topo)
+// São EXEMPLOS ILUSTRATIVOS gerados em CSS, por ramo de negócio,
+// não clientes reais. A legenda deixa isso claro na página.
+// ------------------------------------------------------------
+
+export const vitrineSecao = {
+  legenda: 'Exemplos ilustrativos dos estilos de site que eu crio',
+}
+
+export interface ItemVitrine {
+  nicho: string
+  titulo: string
+  botao: string
+  cores: [string, string]
+  /** cor de fundo da "página" dentro do mockup */
+  fundo: 'claro' | 'escuro'
+}
+
+export const vitrine: ItemVitrine[][] = [
+  [
+    { nicho: 'Padaria', titulo: 'Pão quentinho todo dia', botao: 'Pedir agora', cores: ['#F59E0B', '#EA580C'], fundo: 'claro' },
+    { nicho: 'Barbearia', titulo: 'Corte e barba com hora marcada', botao: 'Agendar', cores: ['#1677FF', '#0F172A'], fundo: 'escuro' },
+    { nicho: 'Clínica', titulo: 'Cuidado perto de você', botao: 'Marcar consulta', cores: ['#00D4FF', '#0EA5E9'], fundo: 'claro' },
+    { nicho: 'Pet shop', titulo: 'Banho, tosa e carinho', botao: 'Chamar no WhatsApp', cores: ['#22C55E', '#15803D'], fundo: 'claro' },
+    { nicho: 'Hamburgueria', titulo: 'Smash na sua porta', botao: 'Ver cardápio', cores: ['#EF4444', '#7F1D1D'], fundo: 'escuro' },
+  ],
+  [
+    { nicho: 'Estúdio de beleza', titulo: 'Sua melhor versão', botao: 'Agendar horário', cores: ['#EC4899', '#8B5CF6'], fundo: 'claro' },
+    { nicho: 'Academia', titulo: 'Treine com quem entende', botao: 'Aula experimental', cores: ['#8B5CF6', '#1E1B4B'], fundo: 'escuro' },
+    { nicho: 'Loja de roupas', titulo: 'Nova coleção chegou', botao: 'Ver catálogo', cores: ['#F43F5E', '#FB923C'], fundo: 'claro' },
+    { nicho: 'Advocacia', titulo: 'Orientação jurídica clara', botao: 'Falar com advogado', cores: ['#334155', '#0F172A'], fundo: 'escuro' },
+    { nicho: 'Oficina', titulo: 'Revisão sem surpresa', botao: 'Pedir orçamento', cores: ['#FACC15', '#CA8A04'], fundo: 'claro' },
+  ],
 ]
 
 // ------------------------------------------------------------
@@ -100,6 +127,8 @@ export type IconeNome =
 
 export interface Servico {
   icone: IconeNome
+  /** etiqueta curta acima do título, ex.: "Começar" */
+  etiqueta: string
   titulo: string
   descricao: string
   inclui: string[]
@@ -118,6 +147,7 @@ export const servicosSecao = {
 export const servicos: Servico[] = [
   {
     icone: 'landing',
+    etiqueta: 'Começar',
     titulo: 'Página única (Landing Page)',
     descricao:
       'Uma página com seus serviços, fotos, localização, botão de WhatsApp e redes sociais. Ideal para começar.',
@@ -125,6 +155,7 @@ export const servicos: Servico[] = [
   },
   {
     icone: 'institucional',
+    etiqueta: 'Presença',
     titulo: 'Site institucional',
     descricao: 'De 3 a 5 páginas, com a história do negócio, serviços, galeria e contato.',
     inclui: ['De 3 a 5 páginas', 'História do negócio', 'Galeria de fotos', 'Página de contato'],
@@ -132,6 +163,7 @@ export const servicos: Servico[] = [
   },
   {
     icone: 'catalogo',
+    etiqueta: 'Vender',
     titulo: 'Catálogo com pedido pelo WhatsApp',
     descricao:
       'Seus produtos com fotos e preços, e o cliente faz o pedido direto no seu WhatsApp.',
@@ -293,10 +325,16 @@ export const duvidas = [
 // ------------------------------------------------------------
 
 export const chamadaFinal = {
+  selo: 'VAMOS COMEÇAR?',
   tituloAntes: 'Pronto para colocar seu negócio ',
   tituloDestaque: 'no ar',
   tituloDepois: '?',
   subtitulo: 'Me chama no WhatsApp e receba um orçamento sem compromisso.',
+  garantias: [
+    'Você fala direto comigo, sem intermediários',
+    'Orçamento sem compromisso',
+    'Domínio registrado no seu nome',
+  ],
   botao: 'Falar no WhatsApp',
   botaoInstagram: 'Seguir no Instagram',
 }

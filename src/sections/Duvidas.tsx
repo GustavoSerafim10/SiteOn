@@ -21,7 +21,7 @@ export function Duvidas() {
 
           <div className="card mt-10 hidden p-7 lg:block">
             <p className="font-display text-base font-bold text-white">{duvidasSecao.ajudaTitulo}</p>
-            <p className="mt-2 text-sm leading-relaxed text-cinza">{duvidasSecao.ajudaTexto}</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-300">{duvidasSecao.ajudaTexto}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <ExternalLink href={WHATSAPP_LINK} className="btn-primary px-5 py-3 text-sm">
                 <WhatsAppIcon className="h-4 w-4" />
@@ -45,7 +45,7 @@ export function Duvidas() {
                   aria-hidden="true"
                 />
               </summary>
-              <p className="px-5 pb-6 text-sm leading-relaxed text-cinza sm:px-7 sm:text-base">{d.resposta}</p>
+              <p className="px-5 pb-6 text-sm leading-relaxed text-slate-300 sm:px-7 sm:text-base">{d.resposta}</p>
             </details>
           ))}
         </Reveal>

@@ -21,7 +21,7 @@ function SiteGenerico({ compacto = false }: { compacto?: boolean }) {
       </div>
 
       {/* hero */}
-      <div className={`rounded-lg bg-gradient-to-br from-blue/40 via-navy to-violet/30 ${compacto ? 'p-2' : 'p-4'}`}>
+      <div className={`rounded-lg bg-gradient-to-br from-blue via-[#3b4fd8] to-violet ${compacto ? 'p-2' : 'p-4'}`}>
         <div className={`rounded-full bg-white/80 ${compacto ? 'h-1.5 w-3/4' : 'h-3 w-2/3'}`} />
         <div className={`mt-1.5 rounded-full bg-white/40 ${compacto ? 'h-1 w-1/2' : 'h-2 w-1/2'}`} />
         <div className={`mt-2 rounded-full bg-blue ${compacto ? 'h-2 w-10' : 'h-4 w-20'}`} />
@@ -42,7 +42,7 @@ function SiteGenerico({ compacto = false }: { compacto?: boolean }) {
         <>
           {/* galeria */}
           <div className="grid grid-cols-4 gap-2">
-            {['from-cyan/40 to-blue/30', 'from-violet/40 to-navy', 'from-blue/40 to-violet/30', 'from-cyan/30 to-navy'].map(
+            {['from-cyan to-blue', 'from-violet to-fuchsia-500', 'from-amber-400 to-orange-500', 'from-emerald-400 to-cyan'].map(
               (g) => (
                 <div key={g} className={`aspect-[4/3] rounded-md bg-gradient-to-br ${g}`} />
               ),

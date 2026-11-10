@@ -34,7 +34,7 @@ export function SectionHeading({
       </div>
       {(subtitulo || children) && (
         <div className="max-w-md lg:pb-1 lg:text-right">
-          {subtitulo && <p className="text-base text-cinza sm:text-lg">{subtitulo}</p>}
+          {subtitulo && <p className="text-base text-slate-300 sm:text-lg">{subtitulo}</p>}
           {children}
         </div>
       )}

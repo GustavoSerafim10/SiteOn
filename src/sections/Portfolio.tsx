@@ -59,7 +59,7 @@ export function Portfolio() {
 
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-base font-bold sm:text-lg">{item.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-cinza">{item.descricao}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">{item.descricao}</p>
                   {item.link && (
                     <ExternalLink
                       href={item.link}

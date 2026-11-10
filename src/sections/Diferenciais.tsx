@@ -18,7 +18,7 @@ export function Diferenciais() {
             {diferenciaisSecao.tituloAntes}
             <span className="text-gradient whitespace-nowrap">{diferenciaisSecao.tituloDestaque}</span>
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-cinza sm:text-lg">{diferenciaisSecao.texto}</p>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">{diferenciaisSecao.texto}</p>
           <ExternalLink href={WHATSAPP_LINK} className="btn-primary mt-9 px-7 py-4 text-lg">
             <WhatsAppIcon className="h-5 w-5" />
             {diferenciaisSecao.botao}
@@ -33,7 +33,7 @@ export function Diferenciais() {
                   <Icon nome={d.icone} className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 text-lg font-bold">{d.titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-cinza sm:text-base">{d.descricao}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">{d.descricao}</p>
               </div>
             </Reveal>
           ))}

@@ -25,7 +25,7 @@ export function Processo() {
                   )}
                 </div>
                 <h3 className="mt-6 text-lg font-bold sm:text-xl">{passo.titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-cinza sm:text-base">{passo.descricao}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">{passo.descricao}</p>
               </div>
             </Reveal>
           ))}

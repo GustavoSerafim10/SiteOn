@@ -11,6 +11,12 @@ export function Hero() {
       aria-labelledby="hero-titulo"
       className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-36 lg:pt-32 lg:pb-44"
     >
+      {/* quadriculado + brilho de canto */}
+      <div aria-hidden="true" className="grade" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 -right-40 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgb(0_212_255/0.28),rgb(139_92_246/0.16)_45%,transparent_70%)] blur-2xl"
+      />
       {/* horizonte de planeta */}
       <div aria-hidden="true" className="planeta top-[calc(100%-90px)] lg:top-[calc(100%-120px)]" />
 
@@ -23,11 +29,11 @@ export function Hero() {
             className="mt-6 text-[2.15rem] leading-[1.1] font-extrabold sm:text-5xl lg:text-[3.6rem] xl:text-[4.2rem] 2xl:text-[4.9rem]"
           >
             {hero.tituloAntes}
-            <span className="text-gradient whitespace-nowrap">{hero.tituloDestaque}</span>
+            <span className="text-gradient-vivo whitespace-nowrap">{hero.tituloDestaque}</span>
             {hero.tituloDepois}
           </h1>
 
-          <p className="mt-7 max-w-xl text-base leading-relaxed text-cinza sm:text-lg xl:max-w-2xl xl:text-xl">
+          <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg xl:max-w-2xl xl:text-xl">
             {hero.subtitulo}
           </p>
 
