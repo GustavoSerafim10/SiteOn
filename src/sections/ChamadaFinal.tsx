@@ -65,7 +65,7 @@ export function ChamadaFinal() {
               <WhatsAppIcon className="h-6 w-6" />
               {chamadaFinal.botao}
             </ExternalLink>
-            <ExternalLink href={INSTAGRAM_LINK} className="btn-secondary px-8 py-4 text-lg sm:py-5">
+            <ExternalLink href={INSTAGRAM_LINK} className="btn-instagram px-8 py-4 text-lg sm:py-5">
               <InstagramIcon className="h-5 w-5" />
               {chamadaFinal.botaoInstagram}
             </ExternalLink>

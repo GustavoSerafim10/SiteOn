@@ -92,6 +92,9 @@ export const menu = [
   { label: 'Dúvidas', href: '#duvidas' },
 ]
 
+/** Item de rede social no fim do menu do topo (abre em nova aba) */
+export const menuRedeSocial = { label: 'Instagram', href: INSTAGRAM_LINK }
+
 export const botaoOrcamento = 'Orçamento'
 
 // ------------------------------------------------------------

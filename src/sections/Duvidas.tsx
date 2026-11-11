@@ -32,7 +32,7 @@ export function Duvidas() {
                 <WhatsAppIcon className="h-4 w-4" />
                 WhatsApp
               </ExternalLink>
-              <ExternalLink href={INSTAGRAM_LINK} className="btn-secondary px-5 py-3 text-sm">
+              <ExternalLink href={INSTAGRAM_LINK} className="btn-instagram px-5 py-3 text-sm">
                 <InstagramIcon className="h-4 w-4" />
                 {INSTAGRAM_USUARIO}
               </ExternalLink>

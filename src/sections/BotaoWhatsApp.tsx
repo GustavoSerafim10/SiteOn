@@ -10,7 +10,7 @@ export function BotaoWhatsApp() {
         href={INSTAGRAM_LINK}
         aria-label={botaoFlutuanteInstagramLabel}
         title={botaoFlutuanteInstagramLabel}
-        className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-violet to-blue-btn text-white shadow-[0_8px_24px_-6px_rgb(139_92_246/0.6)] ring-1 ring-white/20 transition-transform hover:scale-105 sm:h-12 sm:w-12"
+        className="flex h-11 w-11 items-center justify-center rounded-full bg-instagram text-white ring-1 ring-white/20 transition-transform hover:scale-105 sm:h-12 sm:w-12"
       >
         <InstagramIcon className="h-5 w-5 sm:h-6 sm:w-6" />
       </ExternalLink>

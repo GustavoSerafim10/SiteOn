@@ -56,7 +56,7 @@ export function Hero() {
           <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-200 sm:text-lg xl:text-xl">{hero.subtitulo}</p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ExternalLink href={WHATSAPP_LINK} className="btn-primary px-8 py-4 text-lg shadow-[0_0_30px_-4px_rgb(22_119_255/0.8)]">
+            <ExternalLink href={WHATSAPP_LINK} className="btn-primary px-8 py-4 text-lg">
               <WhatsAppIcon className="h-5 w-5" />
               {hero.botaoPrincipal}
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -80,7 +80,7 @@ export function Hero() {
             href={INSTAGRAM_LINK}
             className="mt-8 flex items-start gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-cyan sm:inline-flex sm:items-center"
           >
-            <InstagramIcon className="mt-0.5 h-4 w-4 shrink-0 sm:mt-0" />
+            <InstagramIcon className="mt-0.5 h-4 w-4 shrink-0 text-pink-300 sm:mt-0" />
             <span>
               {hero.instagramTexto}: <span className="font-semibold whitespace-nowrap text-white">{INSTAGRAM_USUARIO}</span>
             </span>

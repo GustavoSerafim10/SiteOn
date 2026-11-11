@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { botaoOrcamento, INSTAGRAM_LINK, INSTAGRAM_USUARIO, menu, PRECO_A_PARTIR_DE, WHATSAPP_LINK } from '../content'
+import {
+  botaoOrcamento,
+  INSTAGRAM_USUARIO,
+  menu,
+  menuRedeSocial,
+  PRECO_A_PARTIR_DE,
+  WHATSAPP_LINK,
+} from '../content'
 import { Logo } from '../components/Logo'
 import { ExternalLink } from '../components/ExternalLink'
 import { InstagramIcon, WhatsAppIcon } from '../components/BrandIcons'
@@ -92,12 +99,12 @@ export function Header() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <ExternalLink
-            href={INSTAGRAM_LINK}
-            aria-label={`Instagram ${INSTAGRAM_USUARIO}`}
+            href={menuRedeSocial.href}
             title={`Instagram ${INSTAGRAM_USUARIO}`}
-            className="hidden h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-cyan hover:text-cyan sm:inline-flex"
+            className="btn-instagram hidden px-5 py-3 text-sm sm:inline-flex"
           >
-            <InstagramIcon className="h-5 w-5" />
+            <InstagramIcon className="h-4 w-4" />
+            {menuRedeSocial.label}
           </ExternalLink>
           <ExternalLink href={WHATSAPP_LINK} className="btn-primary hidden px-5 py-3 text-sm sm:inline-flex">
             <WhatsAppIcon className="h-4 w-4" />
@@ -148,12 +155,13 @@ export function Header() {
               {botaoOrcamento}
             </ExternalLink>
             <ExternalLink
-              href={INSTAGRAM_LINK}
+              href={menuRedeSocial.href}
               onClick={() => setAberto(false)}
-              aria-label={`Instagram ${INSTAGRAM_USUARIO}`}
-              className="btn-secondary h-12 w-12 shrink-0"
+              title={`Instagram ${INSTAGRAM_USUARIO}`}
+              className="btn-instagram flex-1 px-5 py-3 text-base"
             >
               <InstagramIcon className="h-5 w-5" />
+              {menuRedeSocial.label}
             </ExternalLink>
           </div>
         </div>
