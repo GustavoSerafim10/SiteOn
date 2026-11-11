@@ -6,6 +6,9 @@
  * ============================================================
  */
 
+/** Prefixo dos arquivos de public/ ("/" localmente, "/SiteOn/" no GitHub Pages) */
+const BASE = import.meta.env.BASE_URL
+
 // ------------------------------------------------------------
 // Contatos e constantes
 // ------------------------------------------------------------
@@ -39,25 +42,25 @@ export const SLOGAN = 'Tecnologia que transforma.'
 
 export const marca = {
   /** Símbolo + GUVIX, sem slogan (cabeçalho) */
-  logoCompacto: '/brand/guvix-logo-compacto.svg',
+  logoCompacto: `${BASE}brand/guvix-logo-compacto.svg`,
   /** Símbolo + GUVIX + slogan (rodapé) */
-  logoHorizontal: '/brand/guvix-logo-horizontal.svg',
-  logoMonoBranco: '/brand/guvix-logo-mono-branco.svg',
-  simbolo: '/brand/guvix-simbolo.svg',
+  logoHorizontal: `${BASE}brand/guvix-logo-horizontal.svg`,
+  logoMonoBranco: `${BASE}brand/guvix-logo-mono-branco.svg`,
+  simbolo: `${BASE}brand/guvix-simbolo.svg`,
   /** Lua com fundo transparente (bordas do topo e do portfólio) */
-  lua: '/brand/lua.webp',
+  lua: `${BASE}brand/lua.webp`,
   /** Astronauta estendendo a mão (topo) */
-  astronautaAlcancando: '/brand/astronauta-alcancando.webp',
+  astronautaAlcancando: `${BASE}brand/astronauta-alcancando.webp`,
   /** Close do astronauta com a lua ao fundo, 445×362 (bloco final) */
-  astronautaCloseup: '/brand/guvix-hero-astronauta.webp',
+  astronautaCloseup: `${BASE}brand/guvix-hero-astronauta.webp`,
   /** Segunda lua, usada nas bordas das seções */
-  lua2: '/brand/lua-2.webp',
+  lua2: `${BASE}brand/lua-2.webp`,
   /** Fundo de nebulosa (Serviços e bloco final) */
-  fundoNebula: '/brand/guvix-fundo-espacial-nebula.webp',
+  fundoNebula: `${BASE}brand/guvix-fundo-espacial-nebula.webp`,
   /** Cena completa do astronauta com planeta e asteroides (topo) */
-  heroCena: '/brand/guvix-hero-cena.webp',
+  heroCena: `${BASE}brand/guvix-hero-cena.webp`,
   /** Notebook holográfico com o símbolo G/X (Diferenciais) */
-  diferenciaisNotebook: '/brand/diferenciais-notebook.webp',
+  diferenciaisNotebook: `${BASE}brand/diferenciais-notebook.webp`,
   nome: 'GUVIX',
 }
 
@@ -75,10 +78,10 @@ export const exemplosSecao = {
 }
 
 export const exemplos: { titulo: string; descricao: string; imagem: string }[] = [
-  { titulo: 'Landing Page', descricao: 'Uma página direta ao ponto.', imagem: '/brand/exemplo-landing.webp' },
-  { titulo: 'Site Institucional', descricao: 'A presença completa da sua marca.', imagem: '/brand/exemplo-institucional.webp' },
-  { titulo: 'Dashboard', descricao: 'Painéis para acompanhar seus dados.', imagem: '/brand/exemplo-dashboard.webp' },
-  { titulo: 'E-commerce', descricao: 'Vitrine de produtos on-line.', imagem: '/brand/exemplo-ecommerce.webp' },
+  { titulo: 'Landing Page', descricao: 'Uma página direta ao ponto.', imagem: `${BASE}brand/exemplo-landing.webp` },
+  { titulo: 'Site Institucional', descricao: 'A presença completa da sua marca.', imagem: `${BASE}brand/exemplo-institucional.webp` },
+  { titulo: 'Dashboard', descricao: 'Painéis para acompanhar seus dados.', imagem: `${BASE}brand/exemplo-dashboard.webp` },
+  { titulo: 'E-commerce', descricao: 'Vitrine de produtos on-line.', imagem: `${BASE}brand/exemplo-ecommerce.webp` },
 ]
 
 // ------------------------------------------------------------
@@ -251,7 +254,7 @@ export const portfolio: ItemPortfolio[] = [
     titulo: 'Nightfolio',
     descricao:
       'Controle financeiro pessoal com painel, extrato, metas e projeção de investimentos calculada em Rust/WebAssembly.',
-    imagem: '/portfolio/nightfolio.webp',
+    imagem: `${BASE}portfolio/nightfolio.webp`,
     link: 'https://gustavoserafim10.github.io/CadernoFinancas/',
     tipo: 'proprio',
   },
@@ -259,7 +262,7 @@ export const portfolio: ItemPortfolio[] = [
     titulo: 'ServiceFlow',
     descricao:
       'Sistema de chamados de TI com painel de indicadores: SLA cumprido, tempo médio de resolução e chamados por prioridade e categoria.',
-    imagem: '/portfolio/serviceflow.webp',
+    imagem: `${BASE}portfolio/serviceflow.webp`,
     link: 'https://gustavoserafim10.github.io/serviceflow/#/',
     tipo: 'proprio',
   },
@@ -267,7 +270,7 @@ export const portfolio: ItemPortfolio[] = [
     titulo: 'Análise de Fut',
     descricao:
       'Motor de análise pré-jogo: cadastro da partida, estatísticas, odds de mercado e um checklist até a decisão.',
-    imagem: '/portfolio/analisefut.webp',
+    imagem: `${BASE}portfolio/analisefut.webp`,
     link: 'https://gustavoserafim10.github.io/AnaliseFut/#',
     tipo: 'proprio',
   },
@@ -275,7 +278,7 @@ export const portfolio: ItemPortfolio[] = [
     titulo: 'QuantifySports',
     descricao:
       'Laboratório de partidas: compara as estatísticas dos times e usa simulação Monte Carlo para estimar o valor das odds.',
-    imagem: '/portfolio/quantify.webp',
+    imagem: `${BASE}portfolio/quantify.webp`,
     link: 'https://gustavoserafim10.github.io/ProjetoQuantiFy/',
     tipo: 'proprio',
   },
@@ -284,7 +287,7 @@ export const portfolio: ItemPortfolio[] = [
     descricao:
       'Painel de gestão de mudanças integrado ao GLPI: volume por mês e por tipo, sistemas mais afetados, lead time e acompanhamento ao vivo.',
     // Capa propositalmente desfocada: o sistema usa dados internos reais.
-    imagem: '/portfolio/assistente-mudancas.webp',
+    imagem: `${BASE}portfolio/assistente-mudancas.webp`,
     // Sem link: https://gustavoserafim10.github.io/assistente-mudancas/ retorna 404
     // (não há repositório público com esse nome). Se publicar uma versão com
     // dados fictícios, adicione `link` aqui e troque a capa por uma sem desfoque.
