@@ -254,6 +254,14 @@ export const portfolioSecao = {
 
 export const portfolio: ItemPortfolio[] = [
   {
+    titulo: 'Pousada Serra Aurora',
+    descricao:
+      'Site para pousada em Pirenópolis: acomodações com preço, galeria de fotos, consulta de datas e reserva direta pelo WhatsApp.',
+    imagem: `${BASE}portfolio/pousada-serra-aurora.webp`,
+    link: 'https://pousada-sooty.vercel.app/',
+    tipo: 'demonstracao',
+  },
+  {
     titulo: "Chef's Match",
     descricao:
       'Plataforma que conecta profissionais da gastronomia, restaurantes e fornecedores: vagas com compatibilidade explicada, cotações comparadas e reputação nos dois sentidos.',
