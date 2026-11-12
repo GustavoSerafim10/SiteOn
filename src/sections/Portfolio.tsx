@@ -167,12 +167,23 @@ export function Portfolio() {
                 <div className="flex flex-1 flex-col p-6 sm:p-7">
                   <h3 className="text-xl font-bold">{item.titulo}</h3>
                   <p className="mt-2 flex-1 text-base leading-relaxed text-slate-300">{item.descricao}</p>
-                  {item.link && (
-                    <ExternalLink href={item.link} className="btn-secondary mt-6 self-start px-5 py-2.5 text-sm">
-                      {portfolioSecao.botaoVer}
-                      <span className="sr-only">: {item.titulo} (abre em nova aba)</span>
-                      <ExternalLinkIcon className="h-4 w-4" aria-hidden="true" />
-                    </ExternalLink>
+                  {(item.link || item.linkApp) && (
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      {item.link && (
+                        <ExternalLink href={item.link} className="btn-secondary px-5 py-2.5 text-sm">
+                          {portfolioSecao.botaoVer}
+                          <span className="sr-only">: {item.titulo} (abre em nova aba)</span>
+                          <ExternalLinkIcon className="h-4 w-4" aria-hidden="true" />
+                        </ExternalLink>
+                      )}
+                      {item.linkApp && (
+                        <ExternalLink href={item.linkApp} className="btn-primary px-5 py-2.5 text-sm">
+                          {portfolioSecao.botaoApp}
+                          <span className="sr-only">: {item.titulo} (abre em nova aba)</span>
+                          <ExternalLinkIcon className="h-4 w-4" aria-hidden="true" />
+                        </ExternalLink>
+                      )}
+                    </div>
                   )}
                 </div>
               </article>

@@ -227,6 +227,8 @@ export interface ItemPortfolio {
   descricao: string
   imagem: string
   link?: string
+  /** Link do app em funcionamento, quando o projeto tem um (mostra o botão "Abrir o app") */
+  linkApp?: string
   tipo: 'cliente' | 'proprio' | 'demonstracao' | 'interno'
   /** Só usado no placeholder em CSS: gradiente de fundo */
   cor?: [string, string]
@@ -247,9 +249,19 @@ export const portfolioSecao = {
     interno: 'Sistema interno',
   },
   botaoVer: 'Ver projeto',
+  botaoApp: 'Abrir o app',
 }
 
 export const portfolio: ItemPortfolio[] = [
+  {
+    titulo: "Chef's Match",
+    descricao:
+      'Plataforma que conecta profissionais da gastronomia, restaurantes e fornecedores: vagas com compatibilidade explicada, cotações comparadas e reputação nos dois sentidos.',
+    imagem: `${BASE}portfolio/chef-match.webp`,
+    link: 'https://gustavoserafim10.github.io/SiteChef-Match/',
+    linkApp: 'https://chef-match-app.vercel.app/',
+    tipo: 'proprio',
+  },
   {
     titulo: 'Nightfolio',
     descricao:
