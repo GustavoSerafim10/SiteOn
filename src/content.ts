@@ -254,6 +254,14 @@ export const portfolioSecao = {
 
 export const portfolio: ItemPortfolio[] = [
   {
+    titulo: 'Personal Trainer',
+    descricao:
+      'Site para personal trainer em Brasília: planos com preço, passo a passo do atendimento, galeria de treinos, dúvidas frequentes e aula experimental pelo WhatsApp.',
+    imagem: `${BASE}portfolio/personal-trainer.webp`,
+    link: 'https://guvix-demo-personal.vercel.app/',
+    tipo: 'demonstracao',
+  },
+  {
     titulo: 'Pousada Serra Aurora',
     descricao:
       'Site para pousada em Pirenópolis: acomodações com preço, galeria de fotos, consulta de datas e reserva direta pelo WhatsApp.',
