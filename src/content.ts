@@ -22,9 +22,6 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIC
 export const INSTAGRAM_LINK = 'https://www.instagram.com/gu_vix/'
 export const INSTAGRAM_USUARIO = '@gu_vix'
 
-/** Botão "Ver todos os projetos" do portfólio */
-export const GITHUB_LINK = 'https://github.com/gustavoserafim10'
-
 export const DOMINIO = 'guvix.com.br'
 
 /**
@@ -242,7 +239,10 @@ export const portfolioSecao = {
   tituloDestaque: 'Portfólio',
   subtitulo: 'Projetos que eu desenvolvi.',
   texto: 'Sites demonstrativos e sistemas criados por mim. É só clicar para ver funcionando.',
+  /** Abre a grade com todos os projetos na própria página */
   botaoTodos: 'Ver todos os projetos',
+  /** Fecha a grade e volta ao carrossel */
+  botaoMenos: 'Ver menos',
   etiquetas: {
     cliente: 'Cliente',
     proprio: 'Projeto próprio',

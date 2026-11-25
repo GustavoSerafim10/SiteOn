@@ -1,6 +1,6 @@
-import { useRef } from 'react'
-import { ArrowLeft, ArrowRight, ExternalLink as ExternalLinkIcon, Eye } from 'lucide-react'
-import { GITHUB_LINK, hero, marca, portfolio, portfolioSecao } from '../content'
+import { useRef, useState } from 'react'
+import { ArrowLeft, ArrowRight, ChevronUp, ExternalLink as ExternalLinkIcon, Eye } from 'lucide-react'
+import { hero, marca, portfolio, portfolioSecao } from '../content'
 import type { ItemPortfolio } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
 import { LaptopHolografico } from '../components/LaptopHolografico'
@@ -84,9 +84,27 @@ function Capa({ item }: { item: ItemPortfolio }) {
   )
 }
 
-/** Portfólio em carrossel: rola com o dedo, com as setas ou pelo teclado */
+/**
+ * Portfólio em carrossel: rola com o dedo, com as setas ou pelo teclado.
+ * "Ver todos os projetos" troca o carrossel por uma grade com todos os itens.
+ */
 export function Portfolio() {
+  const secao = useRef<HTMLElement>(null)
   const trilho = useRef<HTMLUListElement>(null)
+  const [emGrade, setEmGrade] = useState(false)
+
+  const alternarGrade = () => {
+    const recolhendo = emGrade
+    setEmGrade(!emGrade)
+    if (recolhendo) {
+      // Volta suavemente ao início da seção (ou direto, se a pessoa preferir menos movimento)
+      const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      requestAnimationFrame(() => {
+        if (trilho.current) trilho.current.scrollLeft = 0
+        secao.current?.scrollIntoView({ behavior: semMovimento ? 'auto' : 'smooth' })
+      })
+    }
+  }
 
   const mover = (direcao: 1 | -1) => {
     const el = trilho.current
@@ -100,7 +118,12 @@ export function Portfolio() {
     'flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-navy/60 text-white transition-colors hover:border-cyan hover:text-cyan'
 
   return (
-    <section id="portfolio" aria-labelledby="portfolio-titulo" className="relative overflow-hidden py-20 sm:py-28">
+    <section
+      ref={secao}
+      id="portfolio"
+      aria-labelledby="portfolio-titulo"
+      className="relative overflow-hidden py-20 sm:py-28"
+    >
       <div aria-hidden="true" className="brilho brilho-ciano top-1/3 -left-32 h-[28rem] w-[28rem]" />
       <PlanetaBorda src={marca.lua} className="-top-24 -right-40 hidden w-[24rem] opacity-60 lg:block" />
 
@@ -119,17 +142,36 @@ export function Portfolio() {
             <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">{portfolioSecao.texto}</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <ExternalLink href={GITHUB_LINK} className="btn-primary px-7 py-4 text-base sm:text-lg">
-                <Eye className="h-5 w-5" aria-hidden="true" />
-                {portfolioSecao.botaoTodos}
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
-              </ExternalLink>
-              <button type="button" aria-label="Projeto anterior" aria-controls="portfolio-trilho" onClick={() => mover(-1)} className={botaoSeta}>
-                <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+              <button
+                type="button"
+                aria-expanded={emGrade}
+                aria-controls="portfolio-trilho"
+                onClick={alternarGrade}
+                className="btn-primary px-7 py-4 text-base sm:text-lg"
+              >
+                {emGrade ? (
+                  <>
+                    {portfolioSecao.botaoMenos}
+                    <ChevronUp className="h-5 w-5" aria-hidden="true" />
+                  </>
+                ) : (
+                  <>
+                    <Eye className="h-5 w-5" aria-hidden="true" />
+                    {portfolioSecao.botaoTodos}
+                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                  </>
+                )}
               </button>
-              <button type="button" aria-label="Próximo projeto" aria-controls="portfolio-trilho" onClick={() => mover(1)} className={botaoSeta}>
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
-              </button>
+              {!emGrade && (
+                <>
+                  <button type="button" aria-label="Projeto anterior" aria-controls="portfolio-trilho" onClick={() => mover(-1)} className={botaoSeta}>
+                    <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+                  </button>
+                  <button type="button" aria-label="Próximo projeto" aria-controls="portfolio-trilho" onClick={() => mover(1)} className={botaoSeta}>
+                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                  </button>
+                </>
+              )}
             </div>
           </Reveal>
 
@@ -143,16 +185,25 @@ export function Portfolio() {
         <ul
           id="portfolio-trilho"
           ref={trilho}
-          tabIndex={0}
-          aria-label="Projetos (role para os lados)"
-          className="-mx-2 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 pt-2 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          // No carrossel o trilho rola, então precisa receber foco pelo teclado; na grade, não
+          tabIndex={emGrade ? undefined : 0}
+          aria-label={emGrade ? 'Todos os projetos' : 'Projetos (role para os lados)'}
+          className={
+            emGrade
+              ? 'grid gap-6 pt-2 pb-6 sm:grid-cols-2 lg:grid-cols-3'
+              : '-mx-2 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 pt-2 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'
+          }
         >
           {portfolio.map((item, i) => (
             <Reveal
               as="li"
               key={item.titulo}
               delay={Math.min(i, 3) * 100}
-              className="flex w-[86%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-3rem)/3)]"
+              className={
+                emGrade
+                  ? 'flex'
+                  : 'flex w-[86%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-3rem)/3)]'
+              }
             >
               <article className="card group flex w-full flex-col overflow-hidden hover:-translate-y-1">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-t-[1.2rem] border-b border-white/10">
