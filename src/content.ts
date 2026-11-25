@@ -240,9 +240,8 @@ export const portfolioSecao = {
   selo: 'PORTFÓLIO',
   tituloAntes: 'Meu ',
   tituloDestaque: 'Portfólio',
-  subtitulo: 'Projetos reais que eu desenvolvi.',
-  texto:
-    'Sistemas, painéis e aplicações web criados por mim. Nos projetos publicados, é só clicar para ver funcionando.',
+  subtitulo: 'Projetos que eu desenvolvi.',
+  texto: 'Sites demonstrativos e sistemas criados por mim. É só clicar para ver funcionando.',
   botaoTodos: 'Ver todos os projetos',
   etiquetas: {
     cliente: 'Cliente',
