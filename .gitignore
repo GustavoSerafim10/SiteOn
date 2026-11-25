@@ -9,6 +9,9 @@ dist
 .env.*
 !.env.example
 
+# Capturas originais de projetos privados (o repositório é público)
+_originais/
+
 # Logs, backups e dumps não devem ir para o repositório
 *.log
 *.bak

@@ -230,6 +230,8 @@ export interface ItemPortfolio {
   /** Link do app em funcionamento, quando o projeto tem um (mostra o botão "Abrir o app") */
   linkApp?: string
   tipo: 'cliente' | 'proprio' | 'demonstracao' | 'interno'
+  /** Troca o texto da etiqueta só deste item (ex.: "Projeto privado" num item 'interno') */
+  etiqueta?: string
   /** Só usado no placeholder em CSS: gradiente de fundo */
   cor?: [string, string]
 }
@@ -298,9 +300,11 @@ export const portfolio: ItemPortfolio[] = [
     titulo: 'Análise de Fut',
     descricao:
       'Motor de análise pré-jogo: cadastro da partida, estatísticas, odds de mercado e um checklist até a decisão.',
+    // Projeto particular, de uso privado: sem link e com capa desfocada.
+    // A captura original fica em _originais/portfolio/ (fora do public/ e fora do git).
     imagem: `${BASE}portfolio/analisefut.webp`,
-    link: 'https://gustavoserafim10.github.io/AnaliseFut/#',
-    tipo: 'proprio',
+    tipo: 'interno',
+    etiqueta: 'Projeto privado',
   },
   {
     titulo: 'QuantifySports',

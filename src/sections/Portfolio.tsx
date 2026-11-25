@@ -160,7 +160,7 @@ export function Portfolio() {
                   <span
                     className={`absolute bottom-4 left-4 rounded-full px-3 py-1 text-xs font-bold shadow-lg ${estiloEtiqueta[item.tipo]}`}
                   >
-                    {portfolioSecao.etiquetas[item.tipo]}
+                    {item.etiqueta ?? portfolioSecao.etiquetas[item.tipo]}
                   </span>
                 </div>
 
