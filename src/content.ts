@@ -370,13 +370,12 @@ export const duvidas = [
   {
     pergunta: 'Quanto custa um site?',
     resposta:
-      'Depende do tipo e do que você precisa. Me chama no WhatsApp que eu passo um orçamento sem compromisso.',
+      'Os valores começam em R$ 600 para uma página única. O preço final depende do tipo de site e do material que você já tem (textos, fotos, logo). Me chama no WhatsApp que eu te passo um orçamento sem compromisso.',
   },
   {
     pergunta: 'Em quanto tempo fica pronto?',
-    // PLACEHOLDER: confirmar prazos
     resposta:
-      'Uma página única costuma ficar pronta em poucos dias. Sites maiores, conforme o escopo. O prazo vai combinado na proposta.',
+      'Uma página única fica pronta em 5 a 7 dias úteis, e um site institucional em 10 a 15 dias úteis. O prazo começa a contar quando você me envia os textos, as fotos e o logo.',
   },
   {
     pergunta: 'O domínio fica no meu nome?',
@@ -384,15 +383,13 @@ export const duvidas = [
   },
   {
     pergunta: 'Tem mensalidade?',
-    // PLACEHOLDER: confirmar valores
     resposta:
-      'A criação é paga uma vez. Hospedagem, suporte e pequenas alterações podem ser contratados num plano mensal opcional.',
+      'A criação é paga uma vez só. Se quiser, você pode contratar o plano mensal opcional (R$ 59/mês): mantenho o site no ar e atualizado, com suporte pelo WhatsApp e uma pequena alteração por mês. O domínio (cerca de R$ 40 por ano) fica no seu nome e é pago por você.',
   },
   {
     pergunta: 'Quantas alterações posso pedir?',
-    // PLACEHOLDER: confirmar quantas
     resposta:
-      'A proposta inclui rodadas de ajustes antes da entrega. O número fica combinado por escrito.',
+      'Todo projeto inclui 2 rodadas de ajustes antes da entrega. Alterações além disso, ou depois da entrega, são combinadas à parte, ou ficam incluídas no plano mensal.',
   },
   {
     pergunta: 'Vou aparecer no Google?',
@@ -401,8 +398,8 @@ export const duvidas = [
   },
   {
     pergunta: 'Como faço o pagamento?',
-    // PLACEHOLDER: confirmar
-    resposta: 'Normalmente 50% para começar e 50% na entrega.',
+    resposta:
+      '50% para começar e 50% na entrega, antes de o site ir para o ar. O pagamento é por Pix, e também dá para parcelar no cartão.',
   },
 ]
 
