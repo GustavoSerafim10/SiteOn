@@ -3,3 +3,8 @@ dist
 *.local
 .DS_Store
 .vercel
+
+# Variáveis de ambiente e segredos: nunca vão para o GitHub
+.env
+.env.*
+!.env.example

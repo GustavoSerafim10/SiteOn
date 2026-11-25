@@ -1,0 +1,17 @@
+# Dependabot: abre PRs automáticos quando sai correção de segurança ou versão nova
+# das dependências do npm e das actions usadas no deploy.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      dependencias:
+        patterns: ['*']
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
