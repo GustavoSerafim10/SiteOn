@@ -17,7 +17,16 @@ export const WHATSAPP_NUMERO = '5561991965836'
 
 export const WHATSAPP_MENSAGEM = 'Olá! Vim pelo site da Guvix e quero um orçamento para o meu site.'
 
-export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(WHATSAPP_MENSAGEM)}`
+/** Monta o link do WhatsApp com uma mensagem já escrita */
+export const linkWhatsApp = (mensagem: string) =>
+  `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`
+
+/** Link geral (topo, menu, rodapé, botão flutuante) */
+export const WHATSAPP_LINK = linkWhatsApp(WHATSAPP_MENSAGEM)
+
+/** Mensagem do botão de cada estilo na seção de Exemplos */
+export const mensagemEstilo = (estilo: string) =>
+  `Olá! Vim pelo site da Guvix, gostei do estilo ${estilo} e quero um orçamento.`
 
 export const INSTAGRAM_LINK = 'https://www.instagram.com/gu_vix/'
 export const INSTAGRAM_USUARIO = '@gu_vix'
@@ -152,6 +161,8 @@ export interface Servico {
   destaque?: string
   /** Ex.: 'R$ 600' → "Investimento a partir de R$ 600". Vazio → "Sob consulta" */
   precoAPartirDe?: string
+  /** Mensagem que já chega escrita no WhatsApp ao clicar em "Saber mais" */
+  mensagemWhatsApp: string
 }
 
 export const servicosSecao = {
@@ -171,28 +182,50 @@ export const servicos: Servico[] = [
   {
     icone: 'landing',
     titulo: 'Página única (Landing Page)',
-    descricao: 'Seus serviços, fotos, localização e botão de WhatsApp numa página.',
+    descricao: 'Uma página direta para o cliente te conhecer e chamar no WhatsApp.',
     precoAPartirDe: 'R$ 600',
+    mensagemWhatsApp: 'Olá! Vim pelo site da Guvix e quero um orçamento de uma página única (Landing Page).',
   },
   {
     icone: 'institucional',
     titulo: 'Site institucional',
-    descricao: 'De 3 a 5 páginas: história, serviços, galeria e contato.',
+    descricao: 'De 3 a 5 páginas para passar confiança e mostrar tudo o que sua empresa faz.',
     destaque: 'Mais procurado',
     precoAPartirDe: 'R$ 1.200',
+    mensagemWhatsApp: 'Olá! Vim pelo site da Guvix e quero um orçamento de um site institucional.',
   },
   {
     icone: 'catalogo',
     titulo: 'Catálogo com pedido pelo WhatsApp',
-    descricao: 'Produtos com fotos e preços, e o pedido chega no seu WhatsApp.',
+    descricao: 'Sua vitrine on-line: o cliente escolhe os produtos e o pedido chega no seu WhatsApp.',
     precoAPartirDe: 'R$ 1.500',
+    mensagemWhatsApp: 'Olá! Vim pelo site da Guvix e quero um orçamento de um catálogo com pedido pelo WhatsApp.',
   },
   {
     icone: 'criacao',
-    titulo: 'Desenvolvimento personalizado',
-    descricao: 'Sistemas, painéis e aplicações web sob medida.',
+    titulo: 'Sistemas e apps sob medida',
+    descricao: 'Sistemas e painéis feitos sob medida para a rotina do seu negócio.',
+    mensagemWhatsApp: 'Olá! Vim pelo site da Guvix e quero conversar sobre um sistema ou app sob medida.',
   },
 ]
+
+/** Plano mensal opcional, exibido abaixo dos cartões de serviço */
+export const planoMensal = {
+  selo: 'Opcional',
+  nome: 'Plano Guvix Essencial',
+  preco: 'R$ 59',
+  periodo: '/mês',
+  descricao: 'Depois que o site fica pronto, eu cuido dele para você.',
+  inclui: [
+    'Site no ar e monitorado',
+    'Certificado de segurança renovado',
+    'Backup do código',
+    'Suporte pelo WhatsApp',
+    '1 pequena alteração por mês (texto, foto, preço ou horário)',
+  ],
+  botao: 'Quero o plano',
+  whatsappLink: linkWhatsApp('Olá! Vim pelo site da Guvix e quero saber mais sobre o Plano Guvix Essencial.'),
+}
 
 // ------------------------------------------------------------
 // Diferenciais — só benefícios reais. Sem prometer prazo,

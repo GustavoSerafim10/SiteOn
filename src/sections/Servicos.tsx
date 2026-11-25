@@ -1,5 +1,5 @@
-import { ArrowRight } from 'lucide-react'
-import { marca, PRECO_A_PARTIR_DE, servicos, servicosSecao, WHATSAPP_LINK } from '../content'
+import { ArrowRight, Check } from 'lucide-react'
+import { linkWhatsApp, marca, planoMensal, PRECO_A_PARTIR_DE, servicos, servicosSecao } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
 import { Icone3D } from '../components/Icone3D'
 import { PlanetaBorda } from '../components/PlanetaBorda'
@@ -62,7 +62,7 @@ export function Servicos() {
                 </p>
                 <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-slate-300">{s.descricao}</p>
                 <ExternalLink
-                  href={WHATSAPP_LINK}
+                  href={linkWhatsApp(s.mensagemWhatsApp)}
                   aria-label={`${servicosSecao.botao}: ${s.titulo}`}
                   className="btn-secondary mt-6 px-5 py-2.5 text-sm group-hover:border-cyan"
                 >
@@ -74,7 +74,48 @@ export function Servicos() {
           ))}
         </ul>
 
-        <p className="mt-8 text-sm text-slate-400">{servicosSecao.observacao}</p>
+        {/* Plano mensal: faixa abaixo dos cartões, sem competir com os serviços */}
+        <Reveal className="mt-8">
+          <article
+            aria-labelledby="plano-titulo"
+            className="card grid gap-6 p-6 sm:p-8 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-10"
+          >
+            <div className="flex items-center gap-5 lg:block">
+              <Icone3D nome="escudo" cor="from-cyan via-blue to-violet" tamanho="h-16 w-16" icone="h-8 w-8" />
+              <div className="lg:mt-4">
+                <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-cyan ring-1 ring-cyan/40">
+                  {planoMensal.selo}
+                </span>
+                <h3 id="plano-titulo" className="mt-2 font-display text-lg leading-snug font-bold text-white">
+                  {planoMensal.nome}
+                </h3>
+                <p className="mt-1 text-white">
+                  <span className="font-display text-3xl font-extrabold text-cyan">{planoMensal.preco}</span>
+                  <span className="text-slate-300">{planoMensal.periodo}</span>
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-base text-slate-200">{planoMensal.descricao}</p>
+              <ul className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+                {planoMensal.inclui.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-[0.95rem] text-slate-300">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <ExternalLink href={planoMensal.whatsappLink} className="btn-primary justify-self-start px-6 py-3 text-base">
+              {planoMensal.botao}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </ExternalLink>
+          </article>
+        </Reveal>
+
+        <p className="mt-6 text-sm text-slate-400">{servicosSecao.observacao}</p>
       </div>
     </section>
   )

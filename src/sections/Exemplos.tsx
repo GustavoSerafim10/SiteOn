@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { exemplos, exemplosSecao, marca, WHATSAPP_LINK } from '../content'
+import { exemplos, exemplosSecao, linkWhatsApp, marca, mensagemEstilo } from '../content'
 import { ExternalLink } from '../components/ExternalLink'
 import { PlanetaBorda } from '../components/PlanetaBorda'
 import { Reveal } from '../components/Reveal'
@@ -73,7 +73,7 @@ export function Exemplos() {
                       <p className="mt-1 text-sm text-slate-300">{ex.descricao}</p>
                     </div>
                     <ExternalLink
-                      href={WHATSAPP_LINK}
+                      href={linkWhatsApp(mensagemEstilo(ex.titulo))}
                       aria-label={`Quero um site no estilo ${ex.titulo}`}
                       title="Quero um site neste estilo"
                       className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30 text-white transition-all group-hover:border-cyan group-hover:bg-cyan/10 group-hover:text-cyan"
