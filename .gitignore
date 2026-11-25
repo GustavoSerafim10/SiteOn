@@ -8,3 +8,8 @@ dist
 .env
 .env.*
 !.env.example
+
+# Logs, backups e dumps não devem ir para o repositório
+*.log
+*.bak
+*.sql
