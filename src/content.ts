@@ -366,11 +366,12 @@ export const duvidasSecao = {
   ajudaTexto: 'Me chama no WhatsApp ou no Instagram que eu respondo pessoalmente.',
 }
 
+// Nos valores, o espaço depois de "R$" é não separável (U+00A0): o "R$" nunca fica sozinho no fim da linha.
 export const duvidas = [
   {
     pergunta: 'Quanto custa um site?',
     resposta:
-      'Os valores começam em R$ 600 para uma página única. O preço final depende do tipo de site e do material que você já tem (textos, fotos, logo). Me chama no WhatsApp que eu te passo um orçamento sem compromisso.',
+      'Os valores começam em R$ 600 para uma página única. O preço final depende do tipo de site e do material que você já tem (textos, fotos, logo). Me chama no WhatsApp que eu te passo um orçamento sem compromisso.',
   },
   {
     pergunta: 'Em quanto tempo fica pronto?',
@@ -384,7 +385,7 @@ export const duvidas = [
   {
     pergunta: 'Tem mensalidade?',
     resposta:
-      'A criação é paga uma vez só. Se quiser, você pode contratar o plano mensal opcional (R$ 59/mês): mantenho o site no ar e atualizado, com suporte pelo WhatsApp e uma pequena alteração por mês. O domínio (cerca de R$ 40 por ano) fica no seu nome e é pago por você.',
+      'A criação é paga uma vez só. Se quiser, você pode contratar o plano mensal opcional (R$ 59/mês): mantenho o site no ar e atualizado, com suporte pelo WhatsApp e uma pequena alteração por mês. O domínio (cerca de R$ 40 por ano) fica no seu nome e é pago por você.',
   },
   {
     pergunta: 'Quantas alterações posso pedir?',
