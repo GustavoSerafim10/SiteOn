@@ -8,8 +8,10 @@ const opentype = require('opentype.js')
 
 const OUT = process.argv[2] || path.join(__dirname, '..', 'public', 'brand')
 const F = (p) => path.join(__dirname, '..', 'node_modules', '@fontsource', p)
-const orbitron = opentype.loadSync(F('orbitron/files/orbitron-latin-900-normal.woff'))
-const montserrat = opentype.loadSync(F('montserrat/files/montserrat-latin-600-normal.woff'))
+// opentype.js 2 removeu o loadSync: lê o arquivo e passa para o parse
+const carregarFonte = (p) => opentype.parse(fs.readFileSync(F(p)))
+const orbitron = carregarFonte('orbitron/files/orbitron-latin-900-normal.woff')
+const montserrat = carregarFonte('montserrat/files/montserrat-latin-600-normal.woff')
 
 /** Converte texto em path com espaçamento entre letras. Retorna {d, width}. */
 function textPath(font, text, x, y, size, tracking = 0) {
