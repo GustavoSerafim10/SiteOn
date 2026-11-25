@@ -2,7 +2,11 @@ import { botaoFlutuanteInstagramLabel, botaoFlutuanteLabel, INSTAGRAM_LINK, WHAT
 import { ExternalLink } from '../components/ExternalLink'
 import { InstagramIcon, WhatsAppIcon } from '../components/BrandIcons'
 
-/** Botões flutuantes: Instagram (menor) logo acima do WhatsApp */
+/**
+ * Botões flutuantes: Instagram (menor) logo acima do WhatsApp.
+ * No celular só aparece o WhatsApp: o do Instagram cobria a linha "@gu_vix" do topo,
+ * e o Instagram já está no topo, no menu e no rodapé.
+ */
 export function BotaoWhatsApp() {
   return (
     <div className="fixed right-4 bottom-4 z-40 flex flex-col items-center gap-3 sm:right-6 sm:bottom-6">
@@ -10,7 +14,7 @@ export function BotaoWhatsApp() {
         href={INSTAGRAM_LINK}
         aria-label={botaoFlutuanteInstagramLabel}
         title={botaoFlutuanteInstagramLabel}
-        className="flex h-11 w-11 items-center justify-center rounded-full bg-instagram text-white ring-1 ring-white/20 transition-transform hover:scale-105 sm:h-12 sm:w-12"
+        className="hidden h-11 w-11 items-center sm:flex justify-center rounded-full bg-instagram text-white ring-1 ring-white/20 transition-transform hover:scale-105 sm:h-12 sm:w-12"
       >
         <InstagramIcon className="h-5 w-5 sm:h-6 sm:w-6" />
       </ExternalLink>
