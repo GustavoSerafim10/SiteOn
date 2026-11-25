@@ -267,6 +267,7 @@ export const portfolio: ItemPortfolio[] = [
     descricao:
       'Site para pousada em Pirenópolis: acomodações com preço, galeria de fotos, consulta de datas e reserva direta pelo WhatsApp.',
     imagem: `${BASE}portfolio/pousada-serra-aurora.webp`,
+    // TODO: trocar por https://guvix-demo-pousada.vercel.app/ quando o projeto for renomeado na Vercel
     link: 'https://pousada-sooty.vercel.app/',
     tipo: 'demonstracao',
   },
