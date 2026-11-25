@@ -150,6 +150,8 @@ export interface Servico {
   titulo: string
   descricao: string
   destaque?: string
+  /** Ex.: 'R$ 600' → "Investimento a partir de R$ 600". Vazio → "Sob consulta" */
+  precoAPartirDe?: string
 }
 
 export const servicosSecao = {
@@ -158,7 +160,10 @@ export const servicosSecao = {
   tituloDestaque: 'seu negócio',
   subtitulo: 'Escolha o formato que combina com o momento da sua empresa.',
   botao: 'Saber mais',
-  observacao: 'Domínio, hospedagem e funcionalidades extras são combinados no orçamento.',
+  observacao:
+    'Valores iniciais. O preço final depende do escopo. Domínio (pago pelo cliente) e funcionalidades extras são combinados no orçamento.',
+  precoPrefixo: 'Investimento a partir de',
+  precoSobConsulta: 'Sob consulta',
 }
 
 /** Serviços oferecidos (sem E-commerce: não foi confirmado como serviço) */
@@ -167,17 +172,20 @@ export const servicos: Servico[] = [
     icone: 'landing',
     titulo: 'Página única (Landing Page)',
     descricao: 'Seus serviços, fotos, localização e botão de WhatsApp numa página.',
+    precoAPartirDe: 'R$ 600',
   },
   {
     icone: 'institucional',
     titulo: 'Site institucional',
     descricao: 'De 3 a 5 páginas: história, serviços, galeria e contato.',
     destaque: 'Mais procurado',
+    precoAPartirDe: 'R$ 1.200',
   },
   {
     icone: 'catalogo',
     titulo: 'Catálogo com pedido pelo WhatsApp',
     descricao: 'Produtos com fotos e preços, e o pedido chega no seu WhatsApp.',
+    precoAPartirDe: 'R$ 1.500',
   },
   {
     icone: 'criacao',

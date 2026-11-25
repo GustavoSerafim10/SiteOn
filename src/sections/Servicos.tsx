@@ -50,6 +50,16 @@ export function Servicos() {
                 )}
                 <Icone3D nome={s.icone} cor={coresIcones[i % coresIcones.length]} tamanho="h-20 w-20" icone="h-10 w-10" />
                 <h3 className="mt-5 font-display text-lg leading-snug font-bold text-white">{s.titulo}</h3>
+                <p className="mt-2 text-sm font-medium text-slate-300">
+                  {s.precoAPartirDe ? (
+                    <>
+                      {servicosSecao.precoPrefixo}{' '}
+                      <span className="font-semibold whitespace-nowrap text-cyan">{s.precoAPartirDe}</span>
+                    </>
+                  ) : (
+                    <span className="font-semibold text-cyan">{servicosSecao.precoSobConsulta}</span>
+                  )}
+                </p>
                 <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-slate-300">{s.descricao}</p>
                 <ExternalLink
                   href={WHATSAPP_LINK}
