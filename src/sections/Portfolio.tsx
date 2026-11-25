@@ -163,14 +163,15 @@ export function Portfolio() {
                 )}
               </button>
               {!emGrade && (
-                <>
+                // As duas setas ficam juntas: se não couberem ao lado do botão, descem juntas
+                <div className="flex gap-3">
                   <button type="button" aria-label="Projeto anterior" aria-controls="portfolio-trilho" onClick={() => mover(-1)} className={botaoSeta}>
                     <ArrowLeft className="h-5 w-5" aria-hidden="true" />
                   </button>
                   <button type="button" aria-label="Próximo projeto" aria-controls="portfolio-trilho" onClick={() => mover(1)} className={botaoSeta}>
                     <ArrowRight className="h-5 w-5" aria-hidden="true" />
                   </button>
-                </>
+                </div>
               )}
             </div>
           </Reveal>
